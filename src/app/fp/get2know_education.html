@@ -1,0 +1,43 @@
+<div  style="background:white" class="wrapper wrapper-content animated fadeInRight" ng-controller="GoalController as gCtrl">
+  <div class="row">
+    <!-- <div class="col-lg-12">
+      <center><img src="assets/images/qi/fst/dbs_header.png" class="img-responsive"></center>
+    </div> -->
+    <div class="col-lg-12">
+      <div style="background-image: url('assets/images/qi/engagement/KidCapBlackboard.jpg');min-height: 600px;background-attachment: fixed;
+      background-position: center;background-repeat: no-repeat;background-size: cover;">
+      </div>
+    </div>
+      <!-- <img src="assets/images/qi/engagement/active_investing.jpg" du-parallax y="g2k.background"> -->
+
+      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offet-1">
+                <p style="margin-top:80px;">
+        <center>
+          <h2>
+            <p>I am <input type="text" ng-model="gCtrl.model.age" style="width:45px;border-style:none none solid;text-align: center;" > years old, my current total asset is
+              $<input type="text" ng-model="gCtrl.model.total_asset" style="width:100px;border-style:none none solid;text-align: center;" >. </p>
+
+                <p>I would like to save the amount of $<input type="text" ng-model="gCtrl.model.target_amt" style="width:100px;border-style:none none solid;text-align: center;" > for my kid's education in
+                  <input type="text" ng-model="gCtrl.model.target_year" style="width:45px;border-style:none none solid;text-align: center;" > years.</p>
+            <br>
+            <p>or</p>
+            <br>
+            <p>
+                I would like to generate cash of $<input type="text" ng-model="gCtrl.model.target_cashflow" style="width:100px;border-style:none none solid;text-align: center;" > per month to support my kid's education.
+              </p>
+          </h2>
+        </center>
+      </div>
+
+      <div class="col-lg-5 col-lg-offset-4 col-md-6 col-md-offet-4">
+        <p style="margin-top:80px;">
+          <button type="button" ng-click="gCtrl.show_plan('Education')" class="btn btn-danger btn-lg btn-block btn-outline">Show me the plan &nbsp<i class="fa fa-angle-double-right"></i> </button>
+        </p>
+                <a href="#/appStudio/risk_profiler"><button type="button" class="btn btn-danger btn-lg btn-block btn-outline">Take a comprehensive risk profiling &nbsp<i class="fa fa-angle-double-right"></i> </button></a>
+        <p style="margin-top:400px;">
+      </div>
+
+
+
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div  style="background:white" class="wrapper wrapper-content animated fadeInRight" >
+  <div class="row">
+    <!-- <div class="col-lg-12">
+      <center><img src="assets/images/qi/fst/dbs_header.png" class="img-responsive"></center>
+    </div> -->
+    <div class="col-lg-12">
+      <div style="background-image: url('assets/images/qi/engagement/active_investing.jpg');min-height: 600px;background-attachment: fixed;
+      background-position: center;background-repeat: no-repeat;background-size: cover;">
+      </div>
+    </div>
+      <!-- <img src="assets/images/qi/engagement/active_investing.jpg" du-parallax y="g2k.background"> -->
+
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offet-1">
+                <p style="margin-top:80px;">
+        <center>
+          <h2>
+            I am <input type="text" ng-model="gCtrl.preference.active_investing.age" style="width:45px;border-style:none none solid;text-align: center;"> years old and looking for
+            <span style="border-style:none none solid;text-align: center;"
+            ng-bind-html="'&nbsp;' + gCtrl.preference.active_investing.return_level + '&nbsp;'" ></span>
+            <div class="btn-group" uib-dropdown>
+                <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                    <span class="caret"></span>
+                </button>
+                <ul role="menu" uib-dropdown-menu="">
+                    <li ng-click="gCtrl.preference.active_investing.return_level = 'high'"><a href="">high</a></li>
+                    <li ng-click="gCtrl.preference.active_investing.return_level = 'moderate'"><a href="">moderate</a></li>
+                    <li ng-click="gCtrl.preference.active_investing.return_level = 'safe'"><a href="">safe</a></li>
+                </ul>
+            </div>
+
+            investment return. I am interested to invest in
+
+            <span style="border-style:none none solid;text-align: center;"
+            ng-bind-html="'&nbsp;' + gCtrl.preference.active_investing.style + '&nbsp;'" ></span>
+            <div class="btn-group" uib-dropdown>
+                <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                    <span class="caret"></span>
+                </button>
+                <ul role="menu" uib-dropdown-menu="">
+                    <li  ng-click="gCtrl.preference.active_investing.style = 'momentum'"><a href="">momentum</a></li>
+                    <li  ng-click="gCtrl.preference.active_investing.style = 'value'"><a href="">value</a></li>
+                </ul>
+            </div>
+
+            style with
+
+            <span style="border-style:none none solid;text-align: center;"
+            ng-bind-html="'&nbsp;' + gCtrl.preference.active_investing.tilt + '&nbsp;'" ></span>
+            <div class="btn-group" uib-dropdown>
+                <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                    <span class="caret"></span>
+                </button>
+                <ul role="menu" uib-dropdown-menu="">
+                    <li  ng-click="gCtrl.preference.active_investing.tilt = 'Asia'"><a href="">Asia</a></li>
+                    <li  ng-click="gCtrl.preference.active_investing.tilt = 'US'"><a href="">US</a></li>
+                    <li  ng-click="gCtrl.preference.active_investing.tilt = 'EU'"><a href="">EU</a></li>
+                    <li  ng-click="gCtrl.preference.active_investing.tilt = 'Emerging Market'"><a href="">Emerging Market</a></li>
+                    <li  ng-click="gCtrl.preference.active_investing.tilt = 'Commodities'"><a href="">Commodities</a></li>
+                    <li  ng-click="gCtrl.preference.active_investing.stytiltle = 'No Preference'"><a href="">No Preference</a></li>
+                </ul>
+            </div>
+
+            tilt.
+
+      </h2>
+      </div>
+      </center>
+
+      <div class="col-lg-5 col-lg-offset-4 col-md-6 col-md-offet-4">
+        <p style="margin-top:80px;">
+          <button type="button" ng-click="gCtrl.show_plan('Active Investing')" class="btn btn-danger btn-lg btn-block btn-outline">Show me the plan &nbsp<i class="fa fa-angle-double-right"></i> </button>
+        </p>
+                <a href="#/appStudio/risk_profiler"><button type="button" class="btn btn-danger btn-lg btn-block btn-outline">Take a comprehensive risk profiling &nbsp<i class="fa fa-angle-double-right"></i> </button></a>
+        <p style="margin-top:400px;">
+      </div>
+
+
+
+
+  </div>
+</div>
