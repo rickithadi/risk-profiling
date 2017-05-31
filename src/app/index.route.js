@@ -68,6 +68,16 @@
           templateUrl: "app/calculators/debt.html",
           data: { pageTitle: 'Example view' }
         })
+        .state('pie', {
+          abstract: true,
+          url: "/pie",
+          templateUrl: "app/components/common/content.html"
+        })
+        .state('pie.main', {
+          url: "/pie_main",
+          templateUrl: "app/pie/pie.html",
+          data: { pageTitle: 'Example view' }
+        })
       ;
 
     $urlRouterProvider.otherwise('/index/main');
