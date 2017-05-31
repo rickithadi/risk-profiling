@@ -2,26 +2,18 @@
 
 angular.module('inspinia')
     .controller('AddNumbersPieController', function($scope) {
-        $scope.AddNumbers = function() {
-            var loan = Number($scope.loan || 0);
-            console.log("loan:", loan);
- // $scope.total = loan;
- $scope.total = 0;
- // console.log($scope.total);
-var term = Number($scope.term || 0);
-var rate = Number($scope.rate || 0);
-var hold=loan/term;
-var residue=  loan;
-console.log("rate:", rate);
-for (var i = 0; i < term; i++) {
-  $scope.total += residue * rate/100;
-console.log("total (" + i+") : " + $scope.total);
- residue=residue-hold;
-}
-$scope.total=loan+$scope.total;
-console.log("total:", $scope.total);
 
-}
+ $scope.loan=0
+
+$scope.getLit = function(v_total, v_loan) {
+      //var total = Number(total || 0);
+   //loan = Number(loan || 0);
+      var interestPaid = v_total - v_loan;
+      console.log("seconffunc:");
+      console.log("total:", v_total);
+      console.log("loan:", v_loan);
+      console.log("interestPaid:", interestPaid);
+
 Highcharts.chart('container', {
     chart: {
         plotBackgroundColor: null,
@@ -30,7 +22,7 @@ Highcharts.chart('container', {
         type: 'pie'
     },
     title: {
-        text: 'trying my best'
+        text: 'total repayment:' + v_total
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -53,18 +45,40 @@ Highcharts.chart('container', {
         colorByPoint: true,
         data: [{
             name: 'interest',
-            y: 2
+            y: interestPaid
         },
-         {
-            name: 'Chrome',
-            y: 3,
-
-        },
+         
         {
-            name: 'Proprietary or Undetectable',
-            y: 1
+          name: 'principal amount',
+          y: v_loan,
         }]
     }]
 });
+}
 
+  $scope.getValues = function(a,b,c) {
+   var v_loan = Number($scope.a || 0);
+   $scope.loan = v_loan
+    console.log("loan:", v_loan);
+
+    $scope.total = 0;
+    var term = Number($scope.b || 0);
+    var rate = Number($scope.c || 0);
+    var hold = v_loan / term;
+    var residue = v_loan;
+    console.log("rate:", rate);
+    for (var i = 0; i < term; i++) {
+      $scope.total += residue * rate / 100;
+      console.log("total (" + i + ") : " + $scope.total);
+      residue = residue - hold;
+    }
+    $scope.total = v_loan + $scope.total;
+
+    console.log("total:", $scope.total);
+    console.log("loan:", $scope.loan);
+
+
+
+
+  }
 });

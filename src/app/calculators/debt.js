@@ -1,26 +1,24 @@
 'use strict'
 
-angular.module('inspinia')
-    .controller('AddNumbersController', function($scope) {
-        $scope.AddNumbers = function() {
-            var loan = Number($scope.loan || 0);
-            console.log("loan:", loan);
- // $scope.total = loan;
- $scope.total = 0;
- // console.log($scope.total);
-var term = Number($scope.term || 0);
-var rate = Number($scope.rate || 0);
-var hold=loan/term;
-var residue=  loan;
-console.log("rate:", rate);
-for (var i = 0; i < term; i++) {
-  $scope.total += residue * rate/100;
-console.log("total (" + i+") : " + $scope.total);
- residue=residue-hold;
-}
-$scope.total=loan+$scope.total;
-console.log("total:", $scope.total);
-}
+angular.module('inspinia').controller('AddNumbersController', function($scope) {
+  $scope.AddNumbers = function() {
+    var loan = Number($scope.loan || 0);
+    console.log("loan:", loan);
+
+    $scope.total = 0;
+    var term = Number($scope.term || 0);
+    var rate = Number($scope.rate || 0);
+    var hold = loan / term;
+    var residue = loan;
+    console.log("rate:", rate);
+    for (var i = 0; i < term; i++) {
+      $scope.total += residue * rate / 100;
+      console.log("total (" + i + ") : " + $scope.total);
+      residue = residue - hold;
+    }
+    $scope.total = loan + $scope.total;
+    console.log("total:", $scope.total);
+  }
 
 $scope.chartTypes = [
   {"id": "line", "title": "Line"},
@@ -48,7 +46,8 @@ $scope.dashStyles = [
 ];
 
 $scope.chartSeries = [
-  {"name": "Some data", "data": [1, 2, 4, 7, 3], id: 's1'},
+  //{"name": "Some data", "data": [1, 2, 4, 7, 3], id: 's1'},
+{"name": "Some data", "data": [[3,1], [4,2], [5,4], [6,7], [7,3]], id: 's1'},
   {"name": "Some data 3", "data": [3, 1, null, 5, 2], connectNulls: true, id: 's2'},
   {"name": "Some data 2", "data": [5, 2, 2, 3, 5], type: "column", id: 's3'},
   {"name": "My Super Column", "data": [1, 1, 2, 3, 2], type: "column", id: 's4'}
