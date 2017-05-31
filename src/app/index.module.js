@@ -3,6 +3,6 @@
 
   angular
     .module('inspinia', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
-    'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'ngHighcharts']);
+    'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'highcharts-ng']);
 
 })();
