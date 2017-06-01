@@ -1,12 +1,13 @@
-<div ng-controller="AddNumbersPieController">
-  target amount	:<input ng-model="a" type="number"><br></br>
-  time horizon:<input ng-model="b" type="number"><br></br>
+<div ng-controller="infoController">
+  initial amount	:<input ng-model="initialAmt" type="number"><br></br>
+target amount:<input ng-model="targetAmt" type="number"><br></br>
   <!-- interest rate:<input ng-model="c" type="number">%<br></br> -->
 
 
 
-  <button ng-click="getValues(a,b,c); getChart(total, loan)">Click Me!</button>
-
+  <button ng-click="zoomIn()">Zoom out</button>
+  <button ng-click="zoomOut()">Zoom in</button>
+  <button ng-click="updateChart(initialAmt,targetAmt)">magic</button>
   <!-- <button ng-click="getChart(total,loan)">generate chart</button> -->
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
