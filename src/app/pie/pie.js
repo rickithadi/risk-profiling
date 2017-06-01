@@ -25,7 +25,7 @@ Highcharts.chart('container', {
         text: 'total repayment:' + v_total
     },
     tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: ' <b>{point.percentage:.1f}%</b>${series.data.y}'
     },
     plotOptions: {
         pie: {
@@ -33,7 +33,7 @@ Highcharts.chart('container', {
             cursor: 'pointer',
             dataLabels: {
                 enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %:<b>${series.data.y}</b>',
                 style: {
                     color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                 }
@@ -41,11 +41,13 @@ Highcharts.chart('container', {
         }
     },
     series: [{
-        name: 'loan',
+        name: 'loan repayment',
         colorByPoint: true,
         data: [{
             name: 'interest',
-            y: interestPaid
+            y: interestPaid,
+            sliced: true,
+            selected: true
         },
 
         {
