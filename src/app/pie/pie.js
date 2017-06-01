@@ -5,7 +5,7 @@ angular.module('inspinia')
 
  $scope.loan=0
 
-$scope.getLit = function(v_total, v_loan) {
+$scope.getChart = function(v_total, v_loan) {
       //var total = Number(total || 0);
    //loan = Number(loan || 0);
       var interestPaid = v_total - v_loan;
@@ -47,7 +47,7 @@ Highcharts.chart('container', {
             name: 'interest',
             y: interestPaid
         },
-         
+
         {
           name: 'principal amount',
           y: v_loan,
