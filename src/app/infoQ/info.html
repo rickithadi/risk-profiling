@@ -1,14 +1,24 @@
 <div ng-controller="infoController">
-  initial amount	:<input ng-model="initialAmt" type="number"><br></br>
-target amount:<input ng-model="targetAmt" type="number"><br></br>
+  <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
+  <div class="col-lg-4">
+    <br></br>
+    <br></br>
+    <br></br>
+  rate:<input ng-model="rate" type="number">%<br></br>
+term:<input ng-model="term" type="number"><br></br>
+    initialAmt amount:<input ng-model="initialAmt" type="number"><br></br>
+
+
   <!-- interest rate:<input ng-model="c" type="number">%<br></br> -->
 
+  
+  <button ng-click=" getFinalValue(rate,term,initialAmt)">magic</button>
+  <!-- <button ng-click=" clear()">clear</button> -->
 
 
-  <button ng-click="zoomIn()">Zoom out</button>
-  <button ng-click="zoomOut()">Zoom in</button>
-  <button ng-click="updateChart(initialAmt,targetAmt)">magic</button>
-  <!-- <button ng-click="getChart(total,loan)">generate chart</button> -->
+
+  <div class="col-lg-6">
+    <br></br>
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-
+</div>
 </div>

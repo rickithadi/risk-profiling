@@ -1,66 +1,67 @@
 'use strict'
 
-angular.module('inspinia')
-    .controller('AddNumbersPieController', function($scope) {
+angular.module('inspinia').controller('AddNumbersPieController', function($scope) {
 
- $scope.loan=0
+  $scope.loan = 0
 
-$scope.getChart = function(v_total, v_loan) {
-      //var total = Number(total || 0);
-   //loan = Number(loan || 0);
-      var interestPaid = v_total - v_loan;
-      console.log("seconffunc:");
-      console.log("total:", v_total);
-      console.log("loan:", v_loan);
-      console.log("interestPaid:", interestPaid);
+  $scope.getChart = function(v_total, v_loan) {
+    //var total = Number(total || 0);
+    //loan = Number(loan || 0);
+    var interestPaid = v_total - v_loan;
+    console.log("seconffunc:");
+    console.log("total:", v_total);
+    console.log("loan:", v_loan);
+    console.log("interestPaid:", interestPaid);
 
-Highcharts.chart('container', {
-    chart: {
+    Highcharts.chart('container', {
+      chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false,
         type: 'pie'
-    },
-    title: {
+      },
+      title: {
         text: 'total repayment:' + v_total
-    },
-    tooltip: {
+      },
+      tooltip: {
         pointFormat: ' <b>{point.percentage:.1f}%</b>${series.data.y}'
-    },
-    plotOptions: {
+      },
+      plotOptions: {
         pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %:<b>${series.data.y}</b>',
-                style: {
-                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                }
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %:<b>${series.data.y}</b>',
+            style: {
+              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
             }
+          }
         }
-    },
-    series: [{
-        name: 'loan repayment',
-        colorByPoint: true,
-        data: [{
-            name: 'interest',
-            y: interestPaid,
-            sliced: true,
-            selected: true
-        },
-
+      },
+      series: [
         {
-          name: 'principal amount',
-          y: v_loan,
-        }]
-    }]
-});
-}
+          name: 'loan repayment',
+          colorByPoint: true,
+          data: [
+            {
+              name: 'interest',
+              y: interestPaid,
+              sliced: true,
+              selected: true
+            }, {
+              name: 'principal amount',
+              y: v_loan
+            }
+          ]
+        }
+      ]
+    });
+  }
 
-  $scope.getValues = function(a,b,c) {
-   var v_loan = Number($scope.a || 0);
-   $scope.loan = v_loan
+  $scope.getValues = function(a, b, c) {
+    var v_loan = Number($scope.a || 0);
+    $scope.loan = v_loan
     console.log("loan:", v_loan);
 
     $scope.total = 0;
@@ -78,9 +79,6 @@ Highcharts.chart('container', {
 
     console.log("total:", $scope.total);
     console.log("loan:", $scope.loan);
-
-
-
 
   }
 });
