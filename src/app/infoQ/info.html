@@ -1,24 +1,31 @@
 <div ng-controller="infoController">
   <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
-  <div class="col-lg-4">
+  <!-- <div class="col-lg-4"> -->
     <br></br>
     <br></br>
     <br></br>
-    <button ng-click=" getFinalValue(rate,term,initialAmt)">magic</button>
+<div class="row">
+
+<div class="col-md-3">
+
   rate:<input ng-model="rate" type="number">%<br></br>
-term:<input ng-model="term" type="number"><br></br>
-    initialAmt amount:<input ng-model="initialAmt" type="number"><br></br>
+</div>
 
+<div class="col-md-3">
+  term:<input ng-model="term" type="number"><br></br>
+</div>
 
-  <!-- interest rate:<input ng-model="c" type="number">%<br></br> -->
+<div class="col-md-3">
+  initial:<input ng-model="initialAmt" type="number"><br></br>
+</div>
 
+<div class="col-md-3">
+  <button ng-click=" getFinalValue(rate,term,initialAmt)">magic</button>
 
+</div>
 
-  <!-- <button ng-click=" clear()">clear</button> -->
-
-
-
-  <div class="col-lg-6">
+</div>
+  <div class="col-md-6">
     <br></br>
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 </div>
