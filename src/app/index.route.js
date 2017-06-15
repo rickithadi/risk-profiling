@@ -88,6 +88,16 @@
           templateUrl: "app/infoQ/info.html",
           data: { pageTitle: 'Example view' }
         })
+        .state('overview', {
+          abstract: true,
+          url: "/overview",
+          templateUrl: "app/components/common/content.html"
+        })
+        .state('overview.main', {
+          url: "/overview.main",
+          templateUrl: "app/overview/overview.html",
+          data: { pageTitle: 'Example view' }
+        })
       ;
 
     $urlRouterProvider.otherwise('/index/main');
