@@ -1,13 +1,10 @@
 'use strict'
 
 angular.module('inspinia').controller('infoController', function($scope) {
-  var zoomzoom = 10;
-  var targetAmt = 10;
-  var initialAmt = 0;
-  var timeHorizon = 0;
-  var rate = 0.2;
+
+
   var updateDataG = [];
-var arrDara=[];
+
 
   $scope.infoChart_options = {
 
@@ -17,18 +14,7 @@ var arrDara=[];
       chart: {
         type: 'spline'
       },
-      colors: [
-        '#e3edec',
-        '#90abbe',
-        '#d78807',
-        '#c74e05',
-        '#ca2400',
-        '#e9df9a',
-        '#7a8630',
-        '#3d451e',
-        '#c7b28c',
-        '#af8155'
-      ],
+
       tooltip: {
         style: {
           padding: 10,
@@ -64,18 +50,15 @@ var arrDara=[];
       width: 600,
       height: 400
     },
-    //function (optional)
-    func: function(chart) {
-      //setup some logic for the chart
-    }
+
   }
 
-// the button action
+
 
 
 $scope.getFinalValue = function(rate, term, initialAmt) {
   var cash = initialAmt;
-updateDataG=[];
+ updateDataG=[];
     for (var i = 0; i < term; i++) {
     //console.log("cash1:",cash);
     cash = cash * rate / 100 + cash;
@@ -83,18 +66,10 @@ updateDataG=[];
     updateDataG.push(cash);
 
   }
-
-  console.log("updateDataG", updateDataG);
-
   console.log("array to update:", updateDataG);
-  //chart.series[0].update[updateDataG];
+
   $scope.infoChart_options.series[0].data = updateDataG;
 }
 
-// $scope.clear = function(){
-//   var clearChart=[];
-//   $scope.infoChart_options.series[0].data = clearChart;
-//
-//
-// }
+
 });
