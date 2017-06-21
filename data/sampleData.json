@@ -1,0 +1,125 @@
+
+
+
+[
+  {
+    "users": [
+      {
+        "user_Id": "594a289f9a23499a3b608c49  ",
+        "name": "Marie Schultz",
+        "modules": [
+          {
+            "mod_id": "594a289fed24abfbd4ce43d5",
+            "mod_type": "debt",
+            "initialAmt": 23458,
+            "term": 14,
+            "targetAmt": 9.69237315879994e+21
+          }
+        ],
+        "preferences": [
+          {
+            "pref_Id": "594a289f67ca5346e1fe6bd3",
+            "risk_Lvl": "low",
+            "prod_pref": "prod2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "users": [
+      {
+        "user_Id": "594a289f893b360f9cf8fc11  ",
+        "name": "Jacklyn Higgins",
+        "modules": [
+          {
+            "mod_id": "594a289ff612da9d78eccf3d",
+            "mod_type": "debt",
+            "initialAmt": 46740,
+            "term": 19,
+            "targetAmt": 3.7482125446658654e+21
+          }
+        ],
+        "preferences": [
+          {
+            "pref_Id": "594a289ffd9824a0187b9f06",
+            "risk_Lvl": "low",
+            "prod_pref": "prod2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "users": [
+      {
+        "user_Id": "594a289f6879b778269b3a21  ",
+        "name": "Katheryn Meadows",
+        "modules": [
+          {
+            "mod_id": "594a289f2e83a6bef7d99e9c",
+            "mod_type": "debt",
+            "initialAmt": 43703,
+            "term": 17,
+            "targetAmt": 2.935955977766451e+21
+          }
+        ],
+        "preferences": [
+          {
+            "pref_Id": "594a289fccb147e1eb4d754c",
+            "risk_Lvl": "high",
+            "prod_pref": "prod2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "users": [
+      {
+        "user_Id": "594a289fc4f1ce22963b405c  ",
+        "name": "Essie Cooper",
+        "modules": [
+          {
+            "mod_id": "594a289f5d85d129238511ce",
+            "mod_type": "debt",
+            "initialAmt": 13769,
+            "term": 8,
+            "targetAmt": 3.057235711243136e+21
+          }
+        ],
+        "preferences": [
+          {
+            "pref_Id": "594a289f2ac9b20f3dfb3db9",
+            "risk_Lvl": "low",
+            "prod_pref": "prod3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "users": [
+      {
+        "user_Id": "594a289fcbb60ea92dd6db54  ",
+        "name": "Snow Farrell",
+        "modules": [
+          {
+            "mod_id": "594a289f8c456c81de53bdaa",
+            "mod_type": "invest",
+            "initialAmt": 12872,
+            "term": 28,
+            "targetAmt": 8.745201481937362e+21
+          }
+        ],
+        "preferences": [
+          {
+            "pref_Id": "594a289ff488e301f78095d2",
+            "risk_Lvl": "medium",
+            "prod_pref": "prod2"
+          }
+        ]
+      }
+    ]
+  }
+]
