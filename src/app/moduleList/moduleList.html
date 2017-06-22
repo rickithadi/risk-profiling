@@ -1,0 +1,34 @@
+<div ng-controller="moduleController">
+    <form>
+    <label>Name</label>
+        <input type="text" name="name" ng-model="newmod.name"/>
+    <label>Email</label>
+        <input type="text" name="email" ng-model="newmod.email"/>
+    <label>Phone</label>
+        <input type="text" name="phone" ng-model="newmod.phone"/>
+        <br/>
+        <input type="hidden" ng-model="newmod.id" />
+     <input type="button" value="Save" ng-click="savemodule()" />
+    </form>
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="mod in modules">
+    <td>{{ mod.name }}</td>
+    <td>{{ mod.email }}</td>
+    <td>{{ mod.phone }}</td>
+    <td>
+        <a  href="#" ng-click="edit(mod.id)">edit</a> |
+        <a href="#" ng-click="delete(mod.id)">delete</a>
+    </td>
+ </tr>
+</tbody>
+</table>
+</div>

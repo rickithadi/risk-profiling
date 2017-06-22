@@ -98,6 +98,36 @@
           templateUrl: "app/overview/overview.html",
           data: { pageTitle: 'Example view' }
         })
+        .state('dataTest', {
+          abstract: true,
+          url: "/dataTest",
+          templateUrl: "app/components/common/content.html"
+        })
+        .state('dataTest.main', {
+          url: "/dataTest.main",
+          templateUrl: "app/dataTest/dataTest.html",
+          data: { pageTitle: 'Example view' }
+        })
+        .state('overview2', {
+          abstract: true,
+          url: "/overview2",
+          templateUrl: "app/components/common/content.html"
+        })
+        .state('overview2.main', {
+          url: "/overview2.main",
+          templateUrl: "app/overview2/overview2.html",
+          data: { pageTitle: 'this will work' }
+        })
+        .state('moduleList', {
+          abstract: true,
+          url: "/moduleList",
+          templateUrl: "app/components/common/content.html"
+        })
+        .state('moduleList.main', {
+          url: "/moduleList.main",
+          templateUrl: "app/moduleList/moduleList.html",
+          data: { pageTitle: 'list of modules' }
+        })
       ;
 
     $urlRouterProvider.otherwise('/index/main');
