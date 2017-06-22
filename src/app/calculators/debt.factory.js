@@ -7,7 +7,7 @@ angular.module('inspinia')
 
 //
 .factory('Users',function(){
-  console.log("this works1?",users);
+  console.log("b1 ",users);
   var users={};
   users.cast=
   [
@@ -36,7 +36,7 @@ angular.module('inspinia')
       ]
 }];
 
-  console.log("this works2?",users);
+  console.log("b2 ",users);
   return users;
 
 });

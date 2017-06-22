@@ -2,7 +2,7 @@
 
 angular.module('inspinia')
 .controller('usersController', function($scope, Users) {
-  console.log("before ",$scope.users);
+  console.log("a1 ",$scope.users);
 $scope.users=Users;
-  console.log("after ",$scope.users);
+  console.log("a2 ",$scope.users);
 });
