@@ -4,8 +4,9 @@ angular.module('inspinia').service('modService', function () {
 //var contacts=dataService.fac;
 console.log(modules);
     //contacts array to hold list of all contacts
-    var modules = [{
-        id: 0,
+    var modules = [
+      {
+     id: 0,
 
             "mod_id": "594a289f8c456c81de53bdaa",
             "mod_type": "invest",
@@ -14,7 +15,8 @@ console.log(modules);
             "targetAmt": 8.745201481937362e+21
 
 
-    },{
+    },
+    {
       "mod_id": "594a289ff612da9d78eccf3d",
       "mod_type": "debt",
       "initialAmt": 46740,
@@ -26,6 +28,13 @@ console.log(modules);
         "initialAmt": 43703,
         "term": 17,
         "targetAmt": 2.935955977766451e+21
+      },
+      {
+        "mod_id": "594a289f5d85d129238511ce",
+        "mod_type": "debt",
+        "initialAmt": 13769,
+        "term": 8,
+        "targetAmt": 3.057235711243136e+21
       }
   ];
 console.log(modules);
@@ -51,9 +60,9 @@ console.log(modules);
 
     //simply search contacts list for given id
     //and returns the contact object if found
-    this.get = function (id) {
+    this.get = function (mod_id) {
         for (i in modules) {
-            if (modules[i].id == id) {
+            if (modules[i].mod_id == mod_id) {
                 return modules[i];
             }
         }
@@ -62,9 +71,9 @@ console.log(modules);
 
     //iterate through contacts list and delete
     //contact if found
-    this.delete = function (id) {
+    this.delete = function (mod_id) {
         for (i in modules) {
-            if (modules[i].id == id) {
+            if (modules[i].mod_id == mod_id) {
                 modules.splice(i, 1);
             }
         }

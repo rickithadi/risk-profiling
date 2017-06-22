@@ -1,5 +1,7 @@
 <div ng-controller="moduleController">
     <form>
+      search
+      <input type="text" ng-model="search.term">
     <label>inital amount:</label>
         <input type="text" name="initialAmt" ng-model="newmod.initialAmt"/>
         <br></br>
@@ -25,13 +27,13 @@
 </tr>
 </thead>
 <tbody>
-<tr ng-repeat="mod in modules">
+<tr ng-repeat="mod in modules| filter:search">
     <td>{{ mod.initialAmt }}</td>
     <td>{{ mod.term }}</td>
     <td>{{ mod.targetAmt }}</td>
     <td>
-        <a  href="#" ng-click="view(mod.id)">view</a> |
-        <a href="#" ng-click="delete(mod.id)">delete</a>
+        <a  href="#" ng-click="view(mod.mod_id)">view</a> |
+        <a href="#" ng-click="delete(mod.mod_id)">delete</a>
     </td>
  </tr>
 </tbody>
