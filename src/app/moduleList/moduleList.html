@@ -1,31 +1,36 @@
 <div ng-controller="moduleController">
     <form>
-    <label>Name</label>
-        <input type="text" name="name" ng-model="newmod.name"/>
-    <label>Email</label>
-        <input type="text" name="email" ng-model="newmod.email"/>
-    <label>Phone</label>
-        <input type="text" name="phone" ng-model="newmod.phone"/>
-        <br/>
+    <label>inital amount:</label>
+        <input type="text" name="initialAmt" ng-model="newmod.initialAmt"/>
+        <br></br>
+    <label>term</label>
+        <input type="text" name="term" ng-model="newmod.term"/>
+          <br></br>
+    <label>target amount</label>
+        <input type="text" name="targetAmt" ng-model="newmod.targetAmt"/>
+      <br>  <br/>
         <input type="hidden" ng-model="newmod.id" />
      <input type="button" value="Save" ng-click="savemodule()" />
     </form>
-<table>
+<table st-table="rowCollection" class="table table-striped">
 <thead>
 <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
+    <th>initialAmt</th>
+
+    <th>term</th>
+
+    <th>targetAmt</th>
+
     <th>Action</th>
 </tr>
 </thead>
 <tbody>
 <tr ng-repeat="mod in modules">
-    <td>{{ mod.name }}</td>
-    <td>{{ mod.email }}</td>
-    <td>{{ mod.phone }}</td>
+    <td>{{ mod.initialAmt }}</td>
+    <td>{{ mod.term }}</td>
+    <td>{{ mod.targetAmt }}</td>
     <td>
-        <a  href="#" ng-click="edit(mod.id)">edit</a> |
+        <a  href="#" ng-click="view(mod.id)">view</a> |
         <a href="#" ng-click="delete(mod.id)">delete</a>
     </td>
  </tr>

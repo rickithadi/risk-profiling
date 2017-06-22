@@ -15,7 +15,8 @@ angular.module('inspinia').controller('moduleController', function ($scope, modS
     }
 
 
-    $scope.edit = function (id) {
+
+    $scope.view = function (id) {
         $scope.newmod = angular.copy(modService.get(id));
     }
 })
