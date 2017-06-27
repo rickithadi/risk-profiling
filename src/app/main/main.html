@@ -10,28 +10,28 @@
 
                     <i class="glyphicon glyphicon-pencil"></i>
                 </small>
-  <table>
-                <tr ng-repeat="sharedetail in sharedetails">
-                  <td>{{sharedetail.event}}</td>
+  <table class="table table-striped">
+                <tr ng-repeat="data in data">
+                  <td>{{data.event}}</td>
                   <td>
-                    <li ng-repeat="item in sharedetail.expenselist">
+                    <li ng-repeat="item in data.expenselist">
                       {{item.text}}
                     </li>
                   </td>
                   <td>
-                    <li ng-repeat="item in sharedetail.expenselist">
+                    <li ng-repeat="item in data.expenselist">
                       {{item.value}}
                     </li>
                   </td>
-                  <td>{{sharedetail.expense}}</td>
+                  <td>{{data.expense}}</td>
                   </td>
                   <td>
-                    <li ng-repeat="item in sharedetail.sharelist">
+                    <li ng-repeat="item in data.sharelist">
                       {{item.text}}
                     </li>
                   </td>
-                  <td>{{sharedetail.shareno}}</td>
-                  <td>{{sharedetail.shareamount}}</td>
+                  <td>{{data.shareno}}</td>
+                  <td>{{data.shareamount}}</td>
                 </tr>
               </table>
             </div>

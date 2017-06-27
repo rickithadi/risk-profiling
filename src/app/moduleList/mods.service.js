@@ -2,19 +2,15 @@ angular.module('inspinia').service('modService', function () {
     //to create unique contact id
     var uid = 1;
 //var contacts=dataService.fac;
-console.log(modules);
+
     //contacts array to hold list of all contacts
-    var modules = [
-      {
-     id: 0,
-
-            "mod_id": "594a289f8c456c81de53bdaa",
-            "mod_type": "invest",
-            "initialAmt": 12872,
-            "term": 28,
-            "targetAmt": 8.745201481937362e+21
-
-
+    var modules = [{
+  //   id: 0,
+      "mod_id": "594a289f8c456c81de53bdaa",
+      "mod_type": "invest",
+      "initialAmt": 12872,
+      "term": 28,
+      "targetAmt": 8.745201481937362e+21
     },
     {
       "mod_id": "594a289ff612da9d78eccf3d",
@@ -37,7 +33,7 @@ console.log(modules);
         "targetAmt": 3.057235711243136e+21
       }
   ];
-console.log(modules);
+console.log("modules: ",modules);
     //save method create a new contact if not already exists
     //else update the existing object
     this.save = function (mod) {
@@ -61,9 +57,12 @@ console.log(modules);
     //simply search contacts list for given id
     //and returns the contact object if found
     this.get = function (mod_id) {
-        for (i in modules) {
+              for (i in modules) {
             if (modules[i].mod_id == mod_id) {
+              console.log("view complete");
+              console.log(modules[i]);
                 return modules[i];
+              
             }
         }
 

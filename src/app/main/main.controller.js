@@ -10,7 +10,7 @@ angular.module('inspinia')
     vm.descriptionText = 'It is an application skeleton for a typical AngularJS web app. You can use it to quickly bootstrap your angular webapp projects.';
 
 
-    $scope.sharedetails = [{
+    $scope.data = [{
         "event":"treat",
 
         "shareno":4,
