@@ -1,5 +1,6 @@
 angular.module('inspinia').controller('moduleController', function ($scope, modService) {
   var updateDataG = [];
+
     $scope.modules = modService.list();
   $scope.newmod={};
     $scope.savemodule = function () {
@@ -18,6 +19,9 @@ angular.module('inspinia').controller('moduleController', function ($scope, modS
 
     $scope.view = function (mod_id) {
         $scope.newmod = angular.copy(modService.get(mod_id));
+        //console.log("array that comes bsck: ", updateDataG);
+         $scope.infoChart_options.series[0].data = updateDataG;
+           console.log("array that comes bsck: ", updateDataG);
 }
         $scope.infoChart_options = {
 
@@ -62,27 +66,27 @@ angular.module('inspinia').controller('moduleController', function ($scope, modS
           size: {
             width: 600,
             height: 400
-          },
-
-        }
-
-
-    $scope.getFinalValue = function(mod_id) {
-        $scope.newmod = angular.copy(modService.get(mod_id));
-          var cash = $scope.newmod.initialAmt;
-           var rate=5;
-           var term=$scope.newmod.term;
-         updateDataG=[];
-            for (var i = 0; i < term; i++) {
-            //console.log("cash1:",cash);
-            cash = cash * rate / 100 + cash;
-            console.log("cash:", cash);
-            updateDataG.push(cash);
-
           }
-          console.log("array to update:", updateDataG);
 
-          $scope.infoChart_options.series[0].data = updateDataG;
         }
+
+
+    // $scope.getFinalValue = function(mod_id) {
+    //     $scope.newmod = angular.copy(modService.get(mod_id));
+    //       var cash = $scope.newmod.initialAmt;
+    //        var rate=5;
+    //        var term=$scope.newmod.term;
+    //      updateDataG=[];
+    //         for (var i = 0; i < term; i++) {
+    //         //console.log("cash1:",cash);
+    //         cash = cash * rate / 100 + cash;
+    //         console.log("cash:", cash);
+    //         updateDataG.push(cash);
+    //
+    //       }
+    //       console.log("array to update:", updateDataG);
+    //
+    //       $scope.infoChart_options.series[0].data = updateDataG;
+    //     }
 
 })

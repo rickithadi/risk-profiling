@@ -61,12 +61,27 @@ console.log("modules: ",modules);
             if (modules[i].mod_id == mod_id) {
               console.log("view complete");
               console.log(modules[i]);
+                    var cash = modules[i].initialAmt;
+                     var rate=5;
+                     var term=modules[i].term;
+                   updateDataG=[];
+                      for (var i = 0; i < term; i++) {
+                      //console.log("cash1:",cash);
+                      cash = cash * rate / 100 + cash;
+                      console.log("cash:", cash);
+                      updateDataG.push(cash);
+
+                    }
+                    console.log("array to update:", updateDataG);
+return updateDataG;
+                  //  $scope.infoChart_options.series[0].data = updateDataG;
+                  }
                 return modules[i];
-              
+
             }
         }
 
-    }
+
 
     //iterate through contacts list and delete
     //contact if found
