@@ -19,6 +19,7 @@ angular.module('inspinia').controller('moduleController', function ($scope, modS
 
     $scope.view = function (mod_id) {
         $scope.newmod = angular.copy(modService.get(mod_id));
+        updateDataG = $scope.newmod
         //console.log("array that comes bsck: ", updateDataG);
          $scope.infoChart_options.series[0].data = updateDataG;
            console.log("array that comes bsck: ", updateDataG);

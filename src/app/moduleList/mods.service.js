@@ -8,6 +8,7 @@ angular.module('inspinia').service('modService', function () {
   //   id: 0,
       "mod_id": "594a289f8c456c81de53bdaa",
       "mod_type": "invest",
+      "rate":4,
       "initialAmt": 12872,
       "term": 28,
       "targetAmt": 8.745201481937362e+21
@@ -15,12 +16,14 @@ angular.module('inspinia').service('modService', function () {
     {
       "mod_id": "594a289ff612da9d78eccf3d",
       "mod_type": "debt",
+        "rate":4,
       "initialAmt": 46740,
       "term": 19,
       "targetAmt": 3.7482125446658654e+21
     },  {
         "mod_id": "594a289f2e83a6bef7d99e9c",
         "mod_type": "debt",
+          "rate":4,
         "initialAmt": 43703,
         "term": 17,
         "targetAmt": 2.935955977766451e+21
@@ -28,6 +31,7 @@ angular.module('inspinia').service('modService', function () {
       {
         "mod_id": "594a289f5d85d129238511ce",
         "mod_type": "debt",
+          "rate":4,
         "initialAmt": 13769,
         "term": 8,
         "targetAmt": 3.057235711243136e+21
@@ -45,7 +49,7 @@ console.log("modules: ",modules);
         } else {
             //for existing contact, find this contact using id
             //and update it.
-            for (i in modules) {
+            for (var i=0;  i < modules.length; i++) {
                 if (modules[i].id == mod.id) {
                     modules[i] = mod;
                 }
@@ -57,15 +61,21 @@ console.log("modules: ",modules);
     //simply search contacts list for given id
     //and returns the contact object if found
     this.get = function (mod_id) {
-              for (i in modules) {
+      console.log("inside get ",modules);
+                      console.log("modules.length", modules.length);
+              for (var i=0;  i < modules.length; i++) {
+                console.log(i);
+                console.log("i ",modules[i].mod_id);
+                console.log(" ",mod_id);
             if (modules[i].mod_id == mod_id) {
               console.log("view complete");
               console.log(modules[i]);
                     var cash = modules[i].initialAmt;
-                     var rate=5;
+                     var rate= modules[i].rate;
                      var term=modules[i].term;
+                     console.log("skip");
                    updateDataG=[];
-                      for (var i = 0; i < term; i++) {
+                      for (var j = 0; j < term; j++) {
                       //console.log("cash1:",cash);
                       cash = cash * rate / 100 + cash;
                       console.log("cash:", cash);
@@ -76,9 +86,9 @@ console.log("modules: ",modules);
 return updateDataG;
                   //  $scope.infoChart_options.series[0].data = updateDataG;
                   }
-                return modules[i];
 
             }
+              return null;
         }
 
 
