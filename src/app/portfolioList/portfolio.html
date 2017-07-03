@@ -1,32 +1,20 @@
 <div ng-controller="portController">
+
+
+  <div class="col-md-3">
+    <button ng-click="go()">magic</button>
+
+  </div>
+
+
   <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
-  <!-- <div class="col-lg-4"> -->
+
+  <div class="col-md-12">
     <br></br>
-    <br></br>
-    <br></br>
-<div class="row">
-
-<div class="col-md-3">
-
-  rate:<input ng-model="rate" type="number">%<br></br>
-</div>
-
-<div class="col-md-3">
-  term:<input ng-model="term" type="number"><br></br>
-</div>
-
-<div class="col-md-3">
-  initial:<input ng-model="initialAmt" type="number"><br></br>
-</div>
-
-<div class="col-md-3">
-  <button ng-click=" getFinalValue(rate,term,initialAmt)">magic</button>
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 700px; margin: 0 auto"></div>
 
 </div>
 
-</div>
-  <div class="col-md-6">
-    <br></br>
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-</div>
+
+
 </div>

@@ -2,17 +2,43 @@
 
 angular.module('inspinia').controller('portController', function($scope) {
 
-
-  var updateDataG = [];
-
-
+  var updateDataG = [
+    [
+      0, 0
+    ],
+    [10, 10]
+  ];
+  var age = 20;
+var year=age;
   $scope.infoChart_options = {
 
     options: {
       //This is the Main Highcharts chart config. Any Highchart options are valid here.
       //will be overriden by values specified below.
       chart: {
-        type: 'spline'
+        type: 'scatter',
+        zoomType: 'x',
+         lineWidth: 1,
+        events: {
+          click: function(e) {
+            // find the clicked values and the series
+            var x = Math.round(e.xAxis[0].value),
+              y = Math.round(e.yAxis[0].value),
+              series = this.series[0];
+
+            // Add it
+            if (x > age && x> year) {
+              series.addPoint([x, y]);
+
+              updateDataG.push([x], [y]);
+              year=x++;
+              //    chart.redraw();
+              //  series.addPoint([x, y]);
+              console.log("added", updateDataG);
+            }
+
+          }
+        }
       },
 
       tooltip: {
@@ -26,7 +52,11 @@ angular.module('inspinia').controller('portController', function($scope) {
       enabled: false
     },
 
-    series : [{ data: [] }],
+    series: [
+      {
+        data: []
+      }
+    ],
     title: {
       text: 'Cumulative Return'
     },
@@ -36,9 +66,16 @@ angular.module('inspinia').controller('portController', function($scope) {
     //Configuration for the xAxis (optional). Currently only one x axis can be dynamically controlled.
     //properties currentMin and currentMax provided 2-way binding to the chart's maximum and minimum
     xAxis: {
-      tickInterval: 1
+      gridLineWidth: 1,
+      min: 0,
+      max: 90,
+      tickInterval: 1,
+      minPadding: 0.05,
+      maxPadding: 0.05
     },
     yAxis: {
+      min: 0,
+      max: 900000,
       title: {
         text: ''
       }
@@ -49,27 +86,14 @@ angular.module('inspinia').controller('portController', function($scope) {
     size: {
       width: 600,
       height: 400
-    },
-
+    }
   }
 
+  $scope.go = function() {
 
-
-
-$scope.getFinalValue = function(rate, term, initialAmt) {
-  var cash = initialAmt;
- updateDataG=[];
-    for (var i = 0; i < term; i++) {
-    //console.log("cash1:",cash);
-    cash = cash * rate / 100 + cash;
-    console.log("cash2:", cash);
-    updateDataG.push(cash);
-
+    console.log(updateDataG);
   }
-  console.log("array to update:", updateDataG);
 
-  $scope.infoChart_options.series[0].data = updateDataG;
-}
-
+  //  $scope.infoChart_options.series[0].data = updateDataG;
 
 });

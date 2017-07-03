@@ -13,6 +13,7 @@ angular.module('inspinia').controller('infoController', function($scope) {
       //will be overriden by values specified below.
       chart: {
         type: 'spline'
+
       },
 
       tooltip: {
