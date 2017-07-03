@@ -128,6 +128,16 @@
           templateUrl: "app/moduleList/moduleList.html",
           data: { pageTitle: 'list of modules' }
         })
+        .state('portfolioList', {
+          abstract: true,
+          url: "/moduleList",
+          templateUrl: "app/components/common/content.html"
+        })
+        .state('portfolioList.main', {
+          url: "/portfolioList.main",
+          templateUrl: "app/portfolioList/portfolio.html",
+          data: { pageTitle: 'list of modules' }
+        })
       ;
 
     $urlRouterProvider.otherwise('/index/main');
