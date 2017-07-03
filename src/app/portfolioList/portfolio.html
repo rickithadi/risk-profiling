@@ -1,46 +1,32 @@
-<div ng-controller="portfolioController">
+<div ng-controller="portController">
   <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
-    <form>
-      search
-      <input type="text" ng-model="search.term">
-    <label>inital amount:</label>
-        <input type="text" name="initialAmt" ng-model="newmod.initialAmt"/>
-        <br></br>
-    <label>term</label>
-        <input type="text" name="term" ng-model="newmod.term"/>
-          <br></br>
-    <label>target amount</label>
-        <input type="text" name="targetAmt" ng-model="newmod.targetAmt"/>
-      <br>  <br/>
-        <input type="hidden" ng-model="newmod.id" />
-     <input type="button" value="Save" ng-click="savemodule()" />
-    </form>
-<table st-table="rowCollection" class="table table-striped">
-<thead>
-<tr>
-    <th>initialAmt</th>
+  <!-- <div class="col-lg-4"> -->
+    <br></br>
+    <br></br>
+    <br></br>
+<div class="row">
 
-    <th>term</th>
+<div class="col-md-3">
 
-    <th>targetAmt</th>
+  rate:<input ng-model="rate" type="number">%<br></br>
+</div>
 
-    <th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="mod in modules| filter:search">
-    <td>{{ mod.initialAmt }}</td>
-    <td>{{ mod.term }}</td>
-    <td>{{ mod.targetAmt }}</td>
-    <td>
-        <a  ng-click="view(mod.mod_id);getFinalValue(mod.mod_id)">view</a> |
-        <a ng-click="delete(mod.mod_id)">delete</a>
-    </td>
- </tr>
-</tbody>
-</table>
-<div class="col-md-6">
-  <br></br>
+<div class="col-md-3">
+  term:<input ng-model="term" type="number"><br></br>
+</div>
+
+<div class="col-md-3">
+  initial:<input ng-model="initialAmt" type="number"><br></br>
+</div>
+
+<div class="col-md-3">
+  <button ng-click=" getFinalValue(rate,term,initialAmt)">magic</button>
+
+</div>
+
+</div>
+  <div class="col-md-6">
+    <br></br>
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 </div>
 </div>
