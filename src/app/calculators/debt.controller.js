@@ -1,8 +1,38 @@
 'use strict'
 
 angular.module('inspinia')
-.controller('usersController', function($scope, Users) {
-  console.log("a1 ",$scope.users);
-$scope.users=Users;
-  console.log("a2 ",$scope.users);
+// .controller('minorController', function($scope, addService,listService) {
+//
+//   $scope.users = dataService.list();
+//   $scope.newuser={};
+//
+//
+//   $scope.saveuser = function () {
+//     addService.save($scope.newuser);
+//       $scope.newuser = {};
+//   }
+//
+//
+//
+// });
+module.controller('ContactController', function ($scope, ContactService) {
+
+    $scope.contacts = ContactService.list();
+
+    $scope.saveContact = function () {
+        ContactService.save($scope.newcontact);
+        $scope.newcontact = {};
+    }
+
+
+    $scope.delete = function (id) {
+
+        ContactService.delete(id);
+        if ($scope.newcontact.id == id) $scope.newcontact = {};
+    }
+
+
+    $scope.edit = function (id) {
+        $scope.newcontact = angular.copy(ContactService.get(id));
+    }
 });
