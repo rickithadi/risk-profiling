@@ -19,6 +19,7 @@ var year=age;
         type: 'scatter',
         zoomType: 'x',
          lineWidth: 1,
+          dashstyle: 'Solid',
         events: {
           click: function(e) {
             // find the clicked values and the series
@@ -76,6 +77,7 @@ var year=age;
     yAxis: {
       min: 0,
       max: 900000,
+      endOnTick:true ,
       title: {
         text: ''
       }
