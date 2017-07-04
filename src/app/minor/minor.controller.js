@@ -1,38 +1,22 @@
-'use strict'
+angular.module('inspinia').controller('useruleController', function ($scope, userService) {
+  $scope.users = userService.list();
+  $scope.newuser = {};
 
-angular.module('inspinia')
-// .controller('minorController', function($scope, addService,listService) {
-//
-//   $scope.users = dataService.list();
-//   $scope.newuser={};
-//
-//
-//   $scope.saveuser = function () {
-//     addService.save($scope.newuser);
-//       $scope.newuser = {};
-//   }
-//
-//
-//
-// });
-module.controller('ContactController', function ($scope, ContactService) {
-
-    $scope.contacts = ContactService.list();
-
-    $scope.saveContact = function () {
-        ContactService.save($scope.newcontact);
-        $scope.newcontact = {};
-    }
+  
+  $scope.saveuser = function () {
+    userService.save($scope.newuser);
+      $scope.newuser = {};
+  }
 
 
-    $scope.delete = function (id) {
+  $scope.delete = function (user_id) {
 
-        ContactService.delete(id);
-        if ($scope.newcontact.id == id) $scope.newcontact = {};
-    }
+    userService.delete(user_id);
+      if ($scope.newuser.user_id == user_id) $scope.newuser = {};
+  }
 
 
-    $scope.edit = function (id) {
-        $scope.newcontact = angular.copy(ContactService.get(id));
-    }
-});
+  $scope.edit = function (user_id) {
+      $scope.newuser = angular.copy(userservice.get(user_id));
+  }
+})

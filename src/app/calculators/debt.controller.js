@@ -1,21 +1,7 @@
 'use strict'
 
 angular.module('inspinia')
-// .controller('minorController', function($scope, addService,listService) {
-//
-//   $scope.users = dataService.list();
-//   $scope.newuser={};
-//
-//
-//   $scope.saveuser = function () {
-//     addService.save($scope.newuser);
-//       $scope.newuser = {};
-//   }
-//
-//
-//
-// });
-module.controller('ContactController', function ($scope, ContactService) {
+.controller('ContactController', function ($scope, ContactService) {
 
     $scope.contacts = ContactService.list();
 

@@ -55,7 +55,7 @@ angular.module('inspinia')
 //         return users;
 //     }
 // });
-module.service('ContactService', function () {
+.service('ContactService', function () {
     //to create unique contact id
     var uid = 1;
 

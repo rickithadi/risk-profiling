@@ -1,114 +1,176 @@
-angular.module('inspinia')
-// .service('dataService', function () {
-//     //to create unique contact id
-//     var uid = 1;
-// //var contacts=dataService.fac;
-//
-//     //contacts array to hold list of all contacts
-//     var users = [{
-//   "id":1,
-//   "debt":100,
-//   "Dtime":20,
-//   "income":500,
-//   "Irate":4,
-//   "Drate":6];
-// });
-// .service('addService', function (dataService) {
-//     //save method create a new contact if not already exists
-//     //else update the existing object
-//     this.save = function (user) {
-//       console.log("added");
-//         if (user.id == null) {
-//             //if this is new contact, add it in contacts array
-//             user.id = uid++;
-//             users.push(user);
-//         } else {
-//             //for existing contact, find this contact using id
-//             //and update it.
-//             for (var i=0;  i < users.length; i++) {
-//                 if (users[i].id == user.id) {
-//                     users[i] = user;
-//                 }
-//             }
-//         }
-//
-//     }});
-//
-//
-//
-//
-//
-// .service('deleteService', function (dataService) {
-//     //iterate through contacts list and delete
-//     //contact if found
-//     this.delete = function (user_id) {
-//         for (i in users) {
-//             if (users[i].user_id == user_id) {
-//                 users.splice(i, 1);
-//             }
-//         }
-//     }});
-//
-// .service('listService', function (dataService) {
-//     //simply returns the contacts list
-//     this.list = function () {
-//         return users;
-//     }
-// });
-module.service('ContactService', function () {
-    //to create unique contact id
-    var uid = 1;
+angular.module('inspinia').service('userService', function() {
+  //to create unique contact id
+  var uid = 1;
+  //var contacts=dataService.fac;
 
-    //contacts array to hold list of all contacts
-    var contacts = [{
-        id: 0,
-        'name': 'Viral',
-            'email': 'hello@gmail.com',
-            'phone': '123-2343-44'
-    }];
+  //contacts array to hold list of all contacts
+  var users = [
+    {
 
-    //save method create a new contact if not already exists
-    //else update the existing object
-    this.save = function (contact) {
-        if (contact.id == null) {
-            //if this is new contact, add it in contacts array
-            contact.id = uid++;
-            contacts.push(contact);
-        } else {
-            //for existing contact, find this contact using id
-            //and update it.
-            for (i in contacts) {
-                if (contacts[i].id == contact.id) {
-                    contacts[i] = contact;
-                }
-            }
+        user_id: 0,
+
+        "debt": {
+          "id": "595b216f97a5e5907c86152b",
+        "rate": 29,
+        "amount": 481397,
+        "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
+        "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
+    },
+      "income" : {
+        "id": "595b216fd1a0274bede58d4a",
+        "annual": 287585
+      },
+      "expenses" : {
+        "id": "595b216fe19d17aa8ffc17c9",
+        "amount": 261503,
+        "recurring": true
+      },
+      "investment" : {
+        "id": "595b216fec37e386a43c4c35",
+        "rate": 16,
+        "initialAmount": 208923,
+        "targetAmount": 180680,
+        "endDate": "Fri Dec 16 2011 01:48:17 GMT+0800 (Malay Peninsula Standard Time)",
+        "startDate": "Thu Mar 10 1994 08:46:38 GMT+0800 (Malay Peninsula Standard Time)"
+      }
+
+    }, {
+
+      user_id: 1,
+
+      "debt": {
+        "id": "595b216f97a5e5907c86152b",
+        "rate": 29,
+        "amount": 481397,
+        "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
+        "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
+      },
+      "income": {
+        "id": "595b216fd1a0274bede58d4a",
+        "annual": 287585
+      },
+      "expenses": {
+        "id": "595b216fe19d17aa8ffc17c9",
+        "amount": 261503,
+        "recurring": true
+      },
+      "investment": {
+        "id": "595b216fec37e386a43c4c35",
+        "rate": 16,
+        "initialAmount": 208923,
+        "targetAmount": 180680,
+        "endDate": "Fri Dec 16 2011 01:48:17 GMT+0800 (Malay Peninsula Standard Time)",
+        "startDate": "Thu Mar 10 1994 08:46:38 GMT+0800 (Malay Peninsula Standard Time)"
+      }}
+
+      , {
+
+        user_id: 3,
+
+        "debt": {
+          "id": "595b216f97a5e5907c86152b",
+          "rate": 29,
+          "amount": 481397,
+          "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
+          "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
+        },
+        "income": {
+          "id": "595b216fd1a0274bede58d4a",
+          "annual": 287585
+        },
+        "expenses": {
+          "id": "595b216fe19d17aa8ffc17c9",
+          "amount": 261503,
+          "recurring": true
+        },
+        "investment": {
+          "id": "595b216fec37e386a43c4c35",
+          "rate": 16,
+          "initialAmount": 208923,
+          "targetAmount": 180680,
+          "endDate": "Fri Dec 16 2011 01:48:17 GMT+0800 (Malay Peninsula Standard Time)",
+          "startDate": "Thu Mar 10 1994 08:46:38 GMT+0800 (Malay Peninsula Standard Time)"
+        }}
+
+        , {
+
+          user_id: 4,
+
+          "debt": {
+            "id": "595b216f97a5e5907c86152b",
+            "rate": 29,
+            "amount": 481397,
+            "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
+            "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
+          },
+          "income": {
+            "id": "595b216fd1a0274bede58d4a",
+            "annual": 287585
+          },
+          "expenses": {
+            "id": "595b216fe19d17aa8ffc17c9",
+            "amount": 261503,
+            "recurring": true
+          },
+          "investment": {
+            "id": "595b216fec37e386a43c4c35",
+            "rate": 16,
+            "initialAmount": 208923,
+            "targetAmount": 180680,
+            "endDate": "Fri Dec 16 2011 01:48:17 GMT+0800 (Malay Peninsula Standard Time)",
+            "startDate": "Thu Mar 10 1994 08:46:38 GMT+0800 (Malay Peninsula Standard Time)"
+          }}
+
+
+    
+  ];
+
+  console.log("users: ", users);
+  //save method create a new contact if not already exists
+  //else update the existing object
+  this.save = function(user) {
+    console.log("added", user);
+    if (user.user_id == null) {
+      console.log("its a new contact");
+      //if this is new contact, add it in contacts array
+      user.user_id = uid++;
+      users.push(user);
+    } else {
+      console.log("its an existing contact");
+      //for existing contact, find this contact using id
+      //and update it.
+      for (var i = 0; i < users.length; i++) {
+        if (users[i].id == user.user_id) {
+          users[i] = user;
         }
-
+      }
     }
 
-    //simply search contacts list for given id
-    //and returns the contact object if found
-    this.get = function (id) {
-        for (i in contacts) {
-            if (contacts[i].id == id) {
-                return contacts[i];
-            }
-        }
+  }
 
+  //simply search contacts list for given id
+  //and returns the contact object if found
+  this.get = function(user_id) {
+    for (var j = 0; j < users.length; j++) {
+      if (users[j].user_id == user_id) {
+        return users[i];
+      }
     }
 
-    //iterate through contacts list and delete
-    //contact if found
-    this.delete = function (id) {
-        for (i in contacts) {
-            if (contacts[i].id == id) {
-                contacts.splice(i, 1);
-            }
-        }
-    }
+  }
 
-    //simply returns the contacts list
-    this.list = function () {
-        return contacts;
+  //iterate through contacts list and delete
+  //contact if found
+  this.delete = function(user_id) {
+    for (var e = 0; e < users.length; e++) {
+      if (users[e].user_id == user_id) {
+        users.splice(e, 1);
+      }
     }
+  }
+
+  //simply returns the contacts list
+  this.list = function() {
+    return users;
+  }
 });
