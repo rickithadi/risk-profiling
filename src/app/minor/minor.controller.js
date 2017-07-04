@@ -2,8 +2,9 @@ angular.module('inspinia').controller('useruleController', function ($scope, use
   $scope.users = userService.list();
   $scope.newuser = {};
 
-  
+
   $scope.saveuser = function () {
+    console.log("save user");
     userService.save($scope.newuser);
       $scope.newuser = {};
   }
