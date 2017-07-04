@@ -1,22 +1,5 @@
 <div ng-controller="useruleController">
 
-
-    <label>user_id:</label>
-        <input type="text" name="user_id" ng-userel="newuser.initialAmt"/>
-        <br></br>
-    <label>debt.id</label>
-        <input type="text" name="term" ng-userel="newuser.term"/>
-          <br></br>
-    <label>investment.id</label>
-        <input type="text" name="targetAmt" ng-userel="newuser.targetAmt"/>
-      <br>  <br/>
-        <input type="hidden" ng-userel="newuser.id" />
-     <input type="button" value="Save" ng-click="saveuser()" />
-    </form>
-
-
-
-
 <table st-table="rowCollection" class="table table-striped">
   <h1> <center>debt </center></h1>
 <thead>
@@ -48,9 +31,11 @@
 </tbody>
 </table>
 
+
 <br></br>
-<br></br>
-<br></br>
+
+
+<div class="col-md-6">
 
 <table st-table="rowCollection" class="table table-striped">
   <h1> <center>income </center></h1>
@@ -66,7 +51,7 @@
 <tr ng-repeat="user in users| filter:search">
     <td>{{ user.income.id }}</td>
     <td>{{ user.income.annual }}</td>
-    
+
     <td>
         <a  ng-click="view(user.user_id)">view</a> |
         <a ng-click="delete(user.user_id)">delete</a>
@@ -75,8 +60,76 @@
 </tbody>
 </table>
 
-<div class="col-md-6">
-  <br></br>
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 </div>
+
+<div class="col-md-6">
+
+<table st-table="rowCollection" class="table table-striped">
+  <h1> <center>expenses </center></h1>
+<thead>
+<tr>
+    <th>expense id</th>
+
+    <th>amount</th>
+
+    <th>recurring</th>
+
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="user in users| filter:search">
+    <td>{{ user.expenses.id }}</td>
+    <td>{{ user.expenses.amount }}</td>
+    <td>{{ user.expenses.recurring }}</td>
+
+    <td>
+        <a  ng-click="view(user.user_id)">view</a> |
+        <a ng-click="delete(user.user_id)">delete</a>
+    </td>
+ </tr>
+</tbody>
+</table>
+</div>
+
+<br></br>
+
+
+
+
+<div class="col-md-12">
+<table st-table="rowCollection" class="table table-striped">
+  <h1> <center>investments </center></h1>
+<thead>
+<tr>
+    <th>investment id</th>
+
+    <th>rate</th>
+
+    <th>initial Amount</th>
+
+    <th>target Amount</th>
+
+    <th>end date</th>
+
+    <th>start date</th>
+
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="user in users| filter:search">
+    <td>{{ user.investment.id }}</td>
+    <td>{{ user.investment.rate }}</td>
+    <td>{{ user.investment.initialAmount }}</td>
+    <td>{{ user.investment.targetAmount }}</td>
+    <td>{{ user.investment.endDate }}</td>
+    <td>{{ user.investment.startDate }}</td>
+    <td>
+        <a  ng-click="view(user.user_id)">view</a> |
+        <a ng-click="delete(user.user_id)">delete</a>
+    </td>
+ </tr>
+</tbody>
+</table>
+</div>
+
 </div>
