@@ -1,24 +1,25 @@
-'use strict'
-
-angular.module('inspinia')
-.controller('ContactController', function ($scope, ContactService) {
-
-    $scope.contacts = ContactService.list();
-
-    $scope.saveContact = function () {
-        ContactService.save($scope.newcontact);
-        $scope.newcontact = {};
-    }
+angular.module('inspinia').controller('debtController', function ($scope, debtService) {
 
 
-    $scope.delete = function (id) {
-
-        ContactService.delete(id);
-        if ($scope.newcontact.id == id) $scope.newcontact = {};
-    }
+  $scope.debt = debtService.list();
+ $scope.newdeb = {};
 
 
-    $scope.edit = function (id) {
-        $scope.newcontact = angular.copy(ContactService.get(id));
-    }
-});
+     $scope.savedeb = function () {
+       console.log("adding debt");
+         debtService.save($scope.newdeb);
+         $scope.newdeb = {};
+     }
+
+
+     $scope.delete = function (id) {
+
+         debtervice.delete(id);
+         if ($scope.newdeb.id == id) $scope.newdeb = {};
+     }
+
+
+     $scope.edit = function (id) {
+         $scope.newdeb = angular.copy(debtervice.get(id));
+     }
+ })
