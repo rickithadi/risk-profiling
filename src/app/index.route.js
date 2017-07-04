@@ -58,14 +58,14 @@
                 data: { pageTitle: 'Get To Know - Retirement' },
                 access: { requiredLogin: true }
               })
-        .state('calculators', {
+        .state('debt', {
           abstract: true,
-          url: "/calculators",
+          url: "/debt",
           templateUrl: "app/components/common/content.html"
         })
-        .state('calculators.main', {
-          url: "/cal_main",
-          templateUrl: "app/calculators/debt.html",
+        .state('debt.main', {
+          url: "/debt_main",
+          templateUrl: "app/debt/debt.html",
           data: { pageTitle: 'Example view' }
         })
         .state('pie', {
