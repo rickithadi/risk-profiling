@@ -1,14 +1,13 @@
 <div  style="background:white" class="wrapper wrapper-content animated fadeInRight" >
   <div class="row">
   <div ng-controller="debtController"
-        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offet-1">
-                <p style="margin-top:80px;">
+
         <center>
           <h2>
-          rate:<input type="text" ng-model="rate" style="width:100px;border-style:none none solid;text-align: center;" > %
-          amount: $<input type="text" ng-model="amount" style="width:45px;border-style:none none solid;text-align: center;" >
-          end:<input type="text" ng-model="endDate" style="width:100px;border-style:none none solid;text-align: center;" > %
-          start: <input type="text" ng-model="startDate" style="width:45px;border-style:none none solid;text-align: center;" > years before I need the money.
+          rate:<input type="text" ng-model="newdeb.rate"> %
+          amount: $<input type="text" ng-model="newdeb.amount" >
+          end:<input type="text" ng-model="newdeb.endDate" > %
+          start: <input type="text" ng-model="newdeb.startDate" >
           </h2>
 
 
@@ -18,7 +17,39 @@
 
           <button type="button" ng-click="savedeb()" class="btn btn-danger btn-lg btn-block btn-outline">Show me the plan &nbsp<i class="fa fa-angle-double-right"></i> </button>
 
-      </div>
+    
+
+
+
+  <table st-table="rowCollection" class="table table-striped">
+    <h1> <center>debt </center></h1>
+  <thead>
+  <tr>
+      <th>debt id</th>
+
+      <th>rate</th>
+
+      <th>amount</th>
+
+      <th>start date</th>
+
+      <th>end date</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="deb in debt">
+      <td>{{ deb.id }}</td>
+      <td>{{ deb.rate }}</td>
+      <td>{{ deb.amount }}</td>
+      <td>{{ deb.startDate }}</td>
+      <td>{{ deb.endDate }}</td>
+      <td>
+
+      </td>
+   </tr>
+  </tbody>
+  </table>
 </div>
-  </div>
+</div>
 </div>

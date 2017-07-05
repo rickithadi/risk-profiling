@@ -1,37 +1,36 @@
-<div ng-controller="useruleController">
+<div ng-controller="debtController">
 
-<table st-table="rowCollection" class="table table-striped">
-  <h1> <center>debt </center></h1>
-<thead>
-<tr>
-    <th>debt id</th>
+  <table st-table="rowCollection" class="table table-striped">
+    <h1> <center>debt </center></h1>
+  <thead>
+  <tr>
+      <th>debt id</th>
 
-    <th>rate</th>
+      <th>rate</th>
 
-    <th>amount</th>
+      <th>amount</th>
 
-    <th>start date</th>
+      <th>start date</th>
 
-    <th>end date</th>
+      <th>end date</th>
 
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="user in users| filter:search">
-    <td>{{ user.debt.id }}</td>
-    <td>{{ user.debt.rate }}</td>
-    <td>{{ user.debt.amount }}</td>
-    <td>{{ user.debt.startDate }}</td>
-    <td>{{ user.debt.endDate }}</td>
-    <td>
-        <a  ng-click="view(user.user_id)">view</a> |
-        <a ng-click="delete(user.user_id)">delete</a>
-    </td>
- </tr>
-</tbody>
-</table>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="deb in debt">
+      <td>{{ deb.id }}</td>
+      <td>{{ deb.rate }}</td>
+      <td>{{ deb.amount }}</td>
+      <td>{{ deb.startDate }}</td>
+      <td>{{ deb.endDate }}</td>
+      <td>
 
+      </td>
+   </tr>
+  </tbody>
+  </table>
 
+</div>
 <br></br>
 
 

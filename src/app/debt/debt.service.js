@@ -18,6 +18,13 @@ var uid=0;
         "amount": 481397,
         "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
         "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
+      },
+      {
+        "id": "595b216f97a5e369",
+        "rate": 29,
+        "amount": 481397,
+        "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
+        "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
       }
     ];
 
@@ -29,16 +36,16 @@ var uid=0;
     this.save = function (deb) {
             if (deb.id == null) {
                 //if this is new deb, add it in debt array
-                deb.id = uid++;
+                deb.id =  guid();
                 debt.push(deb);
-                  console.log("deb: ", deb);
+                  console.log("new deb: ", deb);
             } else {
                 //for existing deb, find this deb using id
                 //and update it.
                 for (i in debt) {
                     if (debt[i].id == deb.id) {
                         debt[i] = deb;
-                        console.log("deb: ", deb);
+                        console.log("existing deb: ", deb);
                     }
                 }
             }
@@ -71,4 +78,13 @@ var uid=0;
         this.list = function () {
             return debt;
         }
+
+
+        function guid() {
+    function _p8(s) {
+        var p = (Math.random().toString(16)+"000000000").substr(2,8);
+        return s ? "-" + p.substr(0,4) + "-" + p.substr(4,4) : p ;
+    }
+    return _p8() + _p8(true) + _p8(true) + _p8();
+}
     });
