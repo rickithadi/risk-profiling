@@ -22,6 +22,7 @@
 
 
   <table st-table="rowCollection" class="table table-striped">
+      <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
     <h1> <center>debt </center></h1>
   <thead>
   <tr>
@@ -45,7 +46,7 @@
       <td>{{ deb.startDate }}</td>
       <td>{{ deb.endDate }}</td>
       <td>
-
+          <a ng-click="view(deb.id)">view</a> |
       </td>
    </tr>
   </tbody>

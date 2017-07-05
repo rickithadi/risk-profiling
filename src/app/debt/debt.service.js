@@ -80,6 +80,10 @@ var uid=0;
         }
 
 
+        this.getValues = function(id) {
+          console.log("oifjqf",data);
+}
+
         function guid() {
     function _p8(s) {
         var p = (Math.random().toString(16)+"000000000").substr(2,8);
