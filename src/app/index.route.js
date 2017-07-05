@@ -138,6 +138,16 @@
           templateUrl: "app/portfolioList/portfolio.html",
           data: { pageTitle: 'list of modules' }
         })
+        .state('income', {
+          abstract: true,
+          url: "/income",
+          templateUrl: "app/components/common/content.html"
+        })
+        .state('income.main', {
+          url: "/income.main",
+          templateUrl: "app/income/income.html",
+          data: { pageTitle: 'income' }
+        })
       ;
 
     $urlRouterProvider.otherwise('/index/main');
