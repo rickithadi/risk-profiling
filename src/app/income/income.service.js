@@ -1,74 +1,69 @@
 
-  angular.module('inspinia').service('debtService', function () {
+  angular.module('inspinia').service('incomeService', function () {
 var uid=0;
 
 
-    var debt = [
+    var income = [
 
-      {
-        "id": "595b216f97a5e5907c86152b",
-        "rate": 29,
-        "amount": 481397,
-        "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
-        "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
+     {
+          "id": "595b216fd1a0274bede58d4a",
+        "annual": 287585
       },
-      {
-        "id": "595b216f97a5e5907c12345",
-        "rate": 29,
-        "amount": 481397,
-        "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
-        "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
-      }
+
+      {   "id": "595b216fd1a0274bede58d4a",
+      "annual": 287585
+     }
     ];
 
 
 
-    console.log("debt: ", debt);
+    console.log("income: ", income);
 
 
-    this.save = function (deb) {
-            if (deb.id == null) {
-                //if this is new deb, add it in debt array
-                deb.id = uid++;
-                debt.push(deb);
-                  console.log("deb: ", deb);
+    this.save = function (inc) {
+            if (inc.id == null) {
+                //if this is new inc, add it in income array
+                inc.id = uid++;
+                console.log("income: ", income);
+                income.push(inc);
+                  console.log("inc: ", inc);
             } else {
-                //for existing deb, find this deb using id
+                //for existing inc, find this inc using id
                 //and update it.
-                for (i in debt) {
-                    if (debt[i].id == deb.id) {
-                        debt[i] = deb;
-                        console.log("deb: ", deb);
+                for (i in income) {
+                    if (income[i].id == inc.id) {
+                        income[i] = inc;
+                        console.log("inc: ", inc);
                     }
                 }
             }
 
-              console.log("debt: ", debt);
+              console.log("income: ", income);
         }
 
-        //simply search debt list for given id
-        //and returns the deb object if found
+        //simply search income list for given id
+        //and returns the inc object if found
         this.get = function (id) {
-            for (i in debt) {
-                if (debt[i].id == id) {
-                    return debt[i];
+            for (i in income) {
+                if (income[i].id == id) {
+                    return income[i];
                 }
             }
 
         }
 
-        //iterate through debt list and delete
-        //deb if found
+        //iterate through income list and delete
+        //inc if found
         this.delete = function (id) {
-            for (i in debt) {
-                if (debt[i].id == id) {
-                    debt.splice(i, 1);
+            for (i in income) {
+                if (income[i].id == id) {
+                    income.splice(i, 1);
                 }
             }
         }
 
-        //simply returns the debt list
+        //simply returns the income list
         this.list = function () {
-            return debt;
+            return income;
         }
     });

@@ -1,23 +1,20 @@
 <div  style="background:white" class="wrapper wrapper-content animated fadeInRight" >
   <div class="row">
-  <div ng-controller="debtController"
+  <div ng-controller="incomeController"
         <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offet-1">
                 <p style="margin-top:80px;">
         <center>
           <h2>
-          Debt: $<input type="text" ng-model="id" style="width:45px;border-style:none none solid;text-align: center;" >
-          rate:<input type="text" ng-model="rate" style="width:100px;border-style:none none solid;text-align: center;" > %
-          amount: $<input type="text" ng-model="amount" style="width:45px;border-style:none none solid;text-align: center;" >
-          end:<input type="text" ng-model="endDate" style="width:100px;border-style:none none solid;text-align: center;" > %
-          start: <input type="text" ng-model="startDate" style="width:45px;border-style:none none solid;text-align: center;" > years before I need the money.
-          </h2>
+
+          annual:<input type="text" ng-model="annual" style="width:100px;border-style:none none solid;text-align: center;" > %
+
 
 
 
           </h2>
         </center>
 
-          <button type="button" ng-click="savedeb()" class="btn btn-danger btn-lg btn-block btn-outline">Show me the plan &nbsp<i class="fa fa-angle-double-right"></i> </button>
+          <button type="button" ng-click="saveinc()" class="btn btn-danger btn-lg btn-block btn-outline">Show me the plan &nbsp<i class="fa fa-angle-double-right"></i> </button>
 
       </div>
 </div>

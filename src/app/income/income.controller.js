@@ -1,25 +1,25 @@
-angular.module('inspinia').controller('debtController', function ($scope, debtService) {
+angular.module('inspinia').controller('incomeController', function ($scope, incomeService) {
 
 
-  $scope.debt = debtService.list();
- $scope.newdeb = {};
+  $scope.income = incomeService.list();
+ $scope.newinc = {};
 
 
-     $scope.savedeb = function () {
-       console.log("adding debt");
-         debtService.save($scope.newdeb);
-         $scope.newdeb = {};
+     $scope.saveinc = function () {
+       console.log("adding income");
+         incomeService.save($scope.newinc);
+         $scope.newinc = {};
      }
 
 
      $scope.delete = function (id) {
 
-         debtervice.delete(id);
-         if ($scope.newdeb.id == id) $scope.newdeb = {};
+         incomeervice.delete(id);
+         if ($scope.newinc.id == id) $scope.newinc = {};
      }
 
 
      $scope.edit = function (id) {
-         $scope.newdeb = angular.copy(debtervice.get(id));
+         $scope.newinc = angular.copy(incomeervice.get(id));
      }
  })
