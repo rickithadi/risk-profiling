@@ -70,7 +70,7 @@
 <div class="col-md-6">
 <div ng-controller="expensesController">
   <table st-table="rowCollection" class="table table-striped">
-    <h1> <center>debt </center></h1>
+    <h1> <center>expenses </center></h1>
     <thead>
       <tr>
         <th>expenses id</th>
@@ -106,39 +106,32 @@
 
 
 <div class="col-md-12">
-<table st-table="rowCollection" class="table table-striped">
-  <h1> <center>investments </center></h1>
-<thead>
-<tr>
-    <th>investment id</th>
+  <div ng-controller="investmentController">
+  <table st-table="rowCollection" class="table table-striped">
+      <h1> <center>investments </center></h1>
+    <thead>
+      <tr>
+        <th>initialAmt</th>
 
-    <th>rate</th>
+        <th>term</th>
 
-    <th>initial Amount</th>
+        <th>targetAmt</th>
 
-    <th>target Amount</th>
-
-    <th>end date</th>
-
-    <th>start date</th>
-
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="user in users| filter:search">
-    <td>{{ user.investment.id }}</td>
-    <td>{{ user.investment.rate }}</td>
-    <td>{{ user.investment.initialAmount }}</td>
-    <td>{{ user.investment.targetAmount }}</td>
-    <td>{{ user.investment.endDate }}</td>
-    <td>{{ user.investment.startDate }}</td>
-    <td>
-        <a  ng-click="view(user.user_id)">view</a> |
-        <a ng-click="delete(user.user_id)">delete</a>
-    </td>
- </tr>
-</tbody>
-</table>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="investment in investments| filter:search">
+        <td>{{ investment.initialAmt }}</td>
+        <td>{{ investment.term }}</td>
+        <td>{{ investment.targetAmt }}</td>
+        <td>
+          <a ng-click="view(investment.investment_id)">view</a> |
+          <a ng-click="delete(investment.investment_id)">delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
+</div>
 </div>

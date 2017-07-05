@@ -1,46 +1,46 @@
-<div ng-controller="moduleController">
+<div ng-controller="investmentController">
   <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
-    <form>
-      search
-      <input type="text" ng-model="search.term">
+  <form>
+    search
+    <input type="text" ng-model="search.term">
     <label>inital amount:</label>
-        <input type="text" name="initialAmt" ng-model="newmod.initialAmt"/>
-        <br></br>
+    <input type="text" name="initialAmt" ng-model="newinvestment.initialAmt" />
+    <br></br>
     <label>term</label>
-        <input type="text" name="term" ng-model="newmod.term"/>
-          <br></br>
+    <input type="text" name="term" ng-model="newinvestment.term" />
+    <br></br>
     <label>target amount</label>
-        <input type="text" name="targetAmt" ng-model="newmod.targetAmt"/>
-      <br>  <br/>
-        <input type="hidden" ng-model="newmod.id" />
-     <input type="button" value="Save" ng-click="savemodule()" />
-    </form>
-<table st-table="rowCollection" class="table table-striped">
-<thead>
-<tr>
-    <th>initialAmt</th>
+    <input type="text" name="targetAmt" ng-model="newinvestment.targetAmt" />
+    <br> <br/>
+    <input type="hidden" ng-model="newinvestment.id" />
+    <input type="button" value="Save" ng-click="saveinvestment()" />
+  </form>
+  <table st-table="rowCollection" class="table table-striped">
+    <thead>
+      <tr>
+        <th>initialAmt</th>
 
-    <th>term</th>
+        <th>term</th>
 
-    <th>targetAmt</th>
+        <th>targetAmt</th>
 
-    <th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="mod in modules| filter:search">
-    <td>{{ mod.initialAmt }}</td>
-    <td>{{ mod.term }}</td>
-    <td>{{ mod.targetAmt }}</td>
-    <td>
-        <a  ng-click="view(mod.mod_id)">view</a> |
-        <a ng-click="delete(mod.mod_id)">delete</a>
-    </td>
- </tr>
-</tbody>
-</table>
-<div class="col-md-6">
-  <br></br>
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-</div>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="investment in investments| filter:search">
+        <td>{{ investment.initialAmt }}</td>
+        <td>{{ investment.term }}</td>
+        <td>{{ investment.targetAmt }}</td>
+        <td>
+          <a ng-click="view(investment.investment_id)">view</a> |
+          <a ng-click="delete(investment.investment_id)">delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="col-md-6">
+    <br></br>
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+  </div>
 </div>

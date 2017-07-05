@@ -1,57 +1,54 @@
-angular.module('inspinia').service('modService', function () {
+angular.module('inspinia').service('investmentService', function () {
     //to create unique contact id
     var uid = 1;
 //var contacts=dataService.fac;
 
     //contacts array to hold list of all contacts
-    var modules = [{
+    var investments = [{
   //   id: 0,
-      "mod_id": "594a289f8c456c81de53bdaa",
-      "mod_type": "invest",
-      "rate":4,
+      "investment_id": "594a289f8c456c81de53bdaa",
+        "rate":4,
       "initialAmt": 12872,
       "term": 28,
       "targetAmt": 8.745201481937362e+21
     },
     {
-      "mod_id": "594a289ff612da9d78eccf3d",
-      "mod_type": "debt",
-        "rate":4,
+      "investment_id": "594a289ff612da9d78eccf3d",
+            "rate":4,
       "initialAmt": 46740,
       "term": 19,
       "targetAmt": 3.7482125446658654e+21
     },  {
-        "mod_id": "594a289f2e83a6bef7d99e9c",
-        "mod_type": "debt",
-          "rate":4,
+        "investment_id": "594a289f2e83a6bef7d99e9c",
+      "rate":4,
         "initialAmt": 43703,
         "term": 17,
         "targetAmt": 2.935955977766451e+21
       },
       {
-        "mod_id": "594a289f5d85d129238511ce",
-        "mod_type": "debt",
-          "rate":4,
+        "investment_id": "594a289f5d85d129238511ce",
+            "rate":4,
         "initialAmt": 13769,
         "term": 8,
         "targetAmt": 3.057235711243136e+21
       }
   ];
-console.log("modules: ",modules);
+console.log("investments: ",investments);
     //save method create a new contact if not already exists
     //else update the existing object
-    this.save = function (mod) {
+    this.save = function (investment) {
       console.log("added");
-        if (mod.id == null) {
+        if (investment.id == null) {
             //if this is new contact, add it in contacts array
-            mod.id = uid++;
-            modules.push(mod);
+            investment.id =  guid();
+            investments.push(investment);
+            console.log("new investment,",investment);
         } else {
             //for existing contact, find this contact using id
             //and update it.
-            for (var i=0;  i < modules.length; i++) {
-                if (modules[i].id == mod.id) {
-                    modules[i] = mod;
+            for (var i=0;  i < investments.length; i++) {
+                if (investments[i].id == investment.id) {
+                    investments[i] = investment;
                 }
             }
         }
@@ -60,19 +57,19 @@ console.log("modules: ",modules);
 
     //simply search contacts list for given id
     //and returns the contact object if found
-    this.get = function (mod_id) {
-      console.log("inside get ",modules);
-                      console.log("modules.length", modules.length);
-              for (var i=0;  i < modules.length; i++) {
+    this.get = function (investment_id) {
+      console.log("inside get ",investments);
+                      console.log("investments.length", investments.length);
+              for (var i=0;  i < investments.length; i++) {
                 console.log(i);
-                console.log("i ",modules[i].mod_id);
-                console.log(" ",mod_id);
-            if (modules[i].mod_id == mod_id) {
+                console.log("i ",investments[i].investment_id);
+                console.log(" ",investment_id);
+            if (investments[i].investment_id == investment_id) {
               console.log("view complete");
-              console.log(modules[i]);
-                    var cash = modules[i].initialAmt;
-                     var rate= modules[i].rate;
-                     var term=modules[i].term;
+              console.log(investments[i]);
+                    var cash = investments[i].initialAmt;
+                     var rate= investments[i].rate;
+                     var term=investments[i].term;
                      console.log("skip");
                    updateDataG=[];
                       for (var j = 0; j < term; j++) {
@@ -95,16 +92,24 @@ return updateDataG;
 
     //iterate through contacts list and delete
     //contact if found
-    this.delete = function (mod_id) {
-        for (i in modules) {
-            if (modules[i].mod_id == mod_id) {
-                modules.splice(i, 1);
+    this.delete = function (investment_id) {
+        for (i in investments) {
+            if (investments[i].investment_id == investment_id) {
+                investments.splice(i, 1);
             }
         }
     }
 
     //simply returns the contacts list
     this.list = function () {
-        return modules;
+        return investments;
     }
+
+    function guid() {
+function _p8(s) {
+    var p = (Math.random().toString(16)+"000000000").substr(2,8);
+    return s ? "-" + p.substr(0,4) + "-" + p.substr(4,4) : p ;
+}
+return _p8() + _p8(true) + _p8(true) + _p8();
+}
 });

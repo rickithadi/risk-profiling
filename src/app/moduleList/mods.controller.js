@@ -1,25 +1,27 @@
-angular.module('inspinia').controller('moduleController', function ($scope, modService) {
+angular.module('inspinia').controller('investmentController', function ($scope, investmentService) {
   var updateDataG = [];
+$scope.newinvestment = {};
 
-    $scope.modules = modService.list();
-  $scope.newmod={};
-    $scope.savemodule = function () {
-      modService.save($scope.newmod);
-        $scope.newmod = {};
+
+    $scope.investments = investmentService.list();
+  $scope.newinvestment={};
+    $scope.saveinvestment = function () {
+      investmentService.save($scope.newinvestment);
+        $scope.newinvestment = {};
     }
 
 
-    $scope.delete = function (mod_id) {
+    $scope.delete = function (investment_id) {
 
-        modService.delete(mod_id);
-        if ($scope.newmod.mod_id != null && $scope.newmod.mod_id == mod_id) $scope.newmod = {};
+        investmentService.delete(investment_id);
+        if ($scope.newinvestment.investment_id != null && $scope.newinvestment.investment_id == investment_id) $scope.newinvestment = {};
     }
 
 
 
-    $scope.view = function (mod_id) {
-        $scope.newmod = angular.copy(modService.get(mod_id));
-        updateDataG = $scope.newmod
+    $scope.view = function (investment_id) {
+        $scope.newinvestment = angular.copy(investmentService.get(investment_id));
+        updateDataG = $scope.newinvestment
         //console.log("array that comes bsck: ", updateDataG);
          $scope.infoChart_options.series[0].data = updateDataG;
            console.log("array that comes bsck: ", updateDataG);
@@ -72,11 +74,11 @@ angular.module('inspinia').controller('moduleController', function ($scope, modS
         }
 
 
-    // $scope.getFinalValue = function(mod_id) {
-    //     $scope.newmod = angular.copy(modService.get(mod_id));
-    //       var cash = $scope.newmod.initialAmt;
+    // $scope.getFinalValue = function(investment_id) {
+    //     $scope.newinvestment = angular.copy(investmentService.get(investment_id));
+    //       var cash = $scope.newinvestment.initialAmt;
     //        var rate=5;
-    //        var term=$scope.newmod.term;
+    //        var term=$scope.newinvestment.term;
     //      updateDataG=[];
     //         for (var i = 0; i < term; i++) {
     //         //console.log("cash1:",cash);
