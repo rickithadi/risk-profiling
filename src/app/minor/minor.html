@@ -55,7 +55,7 @@
   <tr ng-repeat="inc in income">
       <td>{{ inc.id }}</td>
 
-      <td>{{ inc.amount }}</td>
+      <td>{{ inc.annual }}</td>
       <td>{{ inc.startDate }}</td>
       <td>{{ inc.endDate }}</td>
       <td>
@@ -68,34 +68,38 @@
 </div>
 
 <div class="col-md-6">
+<div ng-controller="expensesController">
+  <table st-table="rowCollection" class="table table-striped">
+    <h1> <center>debt </center></h1>
+    <thead>
+      <tr>
+        <th>expenses id</th>
 
-<table st-table="rowCollection" class="table table-striped">
-  <h1> <center>expenses </center></h1>
-<thead>
-<tr>
-    <th>expense id</th>
+        <th>amount</th>
 
-    <th>amount</th>
+        <th>start</th>
 
-    <th>recurring</th>
+        <th>end</th>
 
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="user in users| filter:search">
-    <td>{{ user.expenses.id }}</td>
-    <td>{{ user.expenses.amount }}</td>
-    <td>{{ user.expenses.recurring }}</td>
 
-    <td>
-        <a  ng-click="view(user.user_id)">view</a> |
-        <a ng-click="delete(user.user_id)">delete</a>
-    </td>
- </tr>
-</tbody>
-</table>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="expense in expenses">
+        <td>{{ expense.id }}</td>
+
+        <td>{{ expense.annual }}</td>
+        <td>{{ expense.startDate }}</td>
+        <td>{{ expense.endDate }}</td>
+        <td>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
+</div>
 <br></br>
 
 
