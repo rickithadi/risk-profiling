@@ -34,31 +34,37 @@
 <br></br>
 
 
+
+<div ng-controller="incomeController">
 <div class="col-md-6">
+  <table st-table="rowCollection" class="table table-striped">
+    <h1> <center>income </center></h1>
+  <thead>
+  <tr>
+      <th>income id</th>
 
-<table st-table="rowCollection" class="table table-striped">
-  <h1> <center>income </center></h1>
-<thead>
-<tr>
-    <th>income id</th>
+      <th>amount</th>
 
-    <th>annual income</th>
+      <th>start date</th>
 
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="user in users| filter:search">
-    <td>{{ user.income.id }}</td>
-    <td>{{ user.income.annual }}</td>
+      <th>end date</th>
 
-    <td>
-        <a  ng-click="view(user.user_id)">view</a> |
-        <a ng-click="delete(user.user_id)">delete</a>
-    </td>
- </tr>
-</tbody>
-</table>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="inc in income">
+      <td>{{ inc.id }}</td>
 
+      <td>{{ inc.amount }}</td>
+      <td>{{ inc.startDate }}</td>
+      <td>{{ inc.endDate }}</td>
+      <td>
+
+      </td>
+   </tr>
+  </tbody>
+  </table>
+</div>
 </div>
 
 <div class="col-md-6">

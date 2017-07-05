@@ -7,11 +7,15 @@ var uid=0;
 
      {
           "id": "595b216fd1a0274bede58d4a",
-        "annual": 287585
+        "annual": 287585,
+        "endDate": "2017",
+        "startDate": "2039"
       },
 
       {   "id": "595b216fd1a0274bede58d4a",
-      "annual": 287585
+      "annual": 287585,
+      "endDate": "2017",
+      "startDate": "2039"
      }
     ];
 
@@ -23,7 +27,7 @@ var uid=0;
     this.save = function (inc) {
             if (inc.id == null) {
                 //if this is new inc, add it in income array
-                inc.id = uid++;
+                inc.id =  guid();
                 console.log("income: ", income);
                 income.push(inc);
                   console.log("inc: ", inc);
@@ -66,4 +70,12 @@ var uid=0;
         this.list = function () {
             return income;
         }
+
+        function guid() {
+    function _p8(s) {
+        var p = (Math.random().toString(16)+"000000000").substr(2,8);
+        return s ? "-" + p.substr(0,4) + "-" + p.substr(4,4) : p ;
+    }
+    return _p8() + _p8(true) + _p8(true) + _p8();
+}
     });

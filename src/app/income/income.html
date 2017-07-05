@@ -1,12 +1,13 @@
-<div  style="background:white" class="wrapper wrapper-content animated fadeInRight" >
+<div style="background:white" class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
-  <div ng-controller="incomeController"
-        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offet-1">
-                <p style="margin-top:80px;">
+    <div ng-controller="incomeController" <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offet-1">
+      <p style="margin-top:80px;">
         <center>
           <h2>
 
-          annual:<input type="text" ng-model="annual" style="width:100px;border-style:none none solid;text-align: center;" > %
+          annual income:<input type="text" ng-model="newinc.annual"  >
+            start:<input type="text" ng-model="newinc.startDate"  >
+              end:<input type="text" ng-model="newinc.endDate"  >
 
 
 
@@ -14,9 +15,41 @@
           </h2>
         </center>
 
-          <button type="button" ng-click="saveinc()" class="btn btn-danger btn-lg btn-block btn-outline">Show me the plan &nbsp<i class="fa fa-angle-double-right"></i> </button>
+        <button type="button" ng-click="saveinc()" class="btn btn-danger btn-lg btn-block btn-outline">add &nbsp<i class="fa fa-angle-double-right"></i> </button>
 
-      </div>
-</div>
+
+
+        <table st-table="rowCollection" class="table table-striped">
+          <h1> <center>debt </center></h1>
+          <thead>
+            <tr>
+              <th>income id</th>
+
+              <th>amount</th>
+
+              <th>start</th>
+
+              <th>end</th>
+
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="inc in income">
+              <td>{{ inc.id }}</td>
+
+              <td>{{ inc.annual }}</td>
+              <td>{{ inc.startDate }}</td>
+              <td>{{ inc.endDate }}</td>
+              <td>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
   </div>
+</div>
+</div>
 </div>

@@ -9,22 +9,22 @@ var uid=0;
         "id": "595b216f97a5e5907c86152b",
         "rate": 29,
         "amount": 481397,
-        "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
-        "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
+        "endDate": "2017",
+        "startDate": "2039"
       },
       {
         "id": "595b216f97a5e5907c12345",
         "rate": 29,
         "amount": 481397,
-        "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
-        "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
+        "endDate": "2017",
+        "startDate": "2039"
       },
       {
         "id": "595b216f97a5e369",
         "rate": 29,
         "amount": 481397,
-        "endDate": "Thu Aug 10 1978 03:39:48 GMT+0800 (Malay Peninsula Standard Time)",
-        "startDate": "Fri Dec 15 2006 09:27:41 GMT+0800 (Malay Peninsula Standard Time)"
+        "endDate": "2017",
+        "startDate": "2039"
       }
     ];
 
