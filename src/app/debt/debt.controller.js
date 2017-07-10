@@ -15,7 +15,7 @@ var data=[];
 
      $scope.delete = function (id) {
 
-         debtervice.delete(id);
+         debtService.delete(id);
          if ($scope.newdeb.id == id) $scope.newdeb = {};
      }
 

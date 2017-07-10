@@ -43,7 +43,8 @@
               <td>{{ expense.startDate }}</td>
               <td>{{ expense.endDate }}</td>
               <td>
-
+                <a ng-click="view(expense.id)">view</a> |
+                <a ng-click="delete(expense.id)">delete</a>
               </td>
             </tr>
           </tbody>

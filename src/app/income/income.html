@@ -42,9 +42,11 @@
               <td>{{ inc.annual }}</td>
               <td>{{ inc.startDate }}</td>
               <td>{{ inc.endDate }}</td>
-              <td>
 
-              </td>
+              <td>
+              <a ng-click="view(inc.id)">view</a> |
+              <a ng-click="delete(inc.id)">delete</a>
+            </td>
             </tr>
           </tbody>
         </table>

@@ -14,7 +14,7 @@ angular.module('inspinia').controller('incomeController', function ($scope, inco
 
      $scope.delete = function (id) {
 
-         incomeervice.delete(id);
+         incomeService.delete(id);
          if ($scope.newinc.id == id) $scope.newinc = {};
      }
 
