@@ -8,7 +8,6 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-
       .state('index', {
         abstract: true,
         url: "/index",
@@ -88,7 +87,6 @@
           templateUrl: "app/infoQ/info.html",
           data: { pageTitle: 'Example view' }
         })
-
         .state('investment', {
           abstract: true,
           url: "/investment",
@@ -127,6 +125,16 @@
         .state('expenses.main', {
           url: "/expenses.main",
           templateUrl: "app/expenses/expenses.html",
+          data: { pageTitle: 'income' }
+        })
+        .state('retirement', {
+          abstract: true,
+          url: "/retirement",
+          templateUrl: "app/components/common/content.html"
+        })
+        .state('retirement.main', {
+          url: "/retirement.main",
+          templateUrl: "app/retirement/retirement.html",
           data: { pageTitle: 'income' }
         })
       ;

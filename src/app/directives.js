@@ -16,6 +16,23 @@ angular.module('inspinia')
             }
         };
     })
+    .directive('ionRangeSlider',
+      function ionRangeSlider() {
+          return {
+              restrict: 'A',
+              scope: {
+                  rangeOptions: '=',
+                  saveInstance: '=',
+                  idxInstance: '='
+              },
+              link: function ( $scope, elem, attrs) {
+                  elem.ionRangeSlider($scope.rangeOptions);
+                  $scope.saveInstance($(elem).data("ionRangeSlider"),$scope.idxInstance);
+                      //console.log("save_instance" + $(elem).data("ionRangeSlider"));
+
+              }
+          }
+    })
     .directive('minimalizaSidebar', function ($timeout) {
         return {
             restrict: 'A',
@@ -38,5 +55,3 @@ angular.module('inspinia')
             }
         };
     });
-
-

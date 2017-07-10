@@ -12,6 +12,8 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
     <link rel="stylesheet" href="../bower_components/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="../bower_components/ion.rangeSlider/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="../bower_components/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -45,22 +47,19 @@
     <script src="../bower_components/pace/pace.js"></script>
     <script src="../bower_components/metisMenu/dist/metisMenu.js"></script>
     <script src="../bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
+    <script src="../bower_components/ion.rangeSlider/js/ion.rangeSlider.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
     <!-- inject:js -->
     <script src="app/index.module.js"></script>
+    <script src="app/retirement/retirement.controller.js"></script>
     <script src="app/portfolioList/portfolio.controller.js"></script>
     <script src="app/pie/pie.js"></script>
-    <script src="app/overview2/overview2.factory.js"></script>
-    <script src="app/overview2/overview2.controller.js"></script>
-    <script src="app/moduleList/mods.service.js"></script>
-    <script src="app/moduleList/mods.controller.js"></script>
     <script src="app/main/main.controller.js"></script>
     <script src="app/investment/mods.service.js"></script>
     <script src="app/investment/mods.controller.js"></script>
-    <script src="app/invest/invest .js"></script>
     <script src="app/infoQ/info.controller.js"></script>
     <script src="app/income/income.service.js"></script>
     <script src="app/income/income.controller.js"></script>
@@ -68,8 +67,6 @@
     <script src="app/expenses/expenses.controller.js"></script>
     <script src="app/debt/debt.service.js"></script>
     <script src="app/debt/debt.controller.js"></script>
-    <script src="app/dataTest/dataTest.service.js"></script>
-    <script src="app/dataTest/dataTest.controller.js"></script>
     <script src="app/inspinia.js"></script>
     <script src="app/index.run.js"></script>
     <script src="app/index.route.js"></script>
