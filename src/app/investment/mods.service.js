@@ -8,29 +8,29 @@ angular.module('inspinia').service('investmentService', function () {
   //   id: 0,
       "investment_id": "594a289f8c456c81de53bdaa",
         "rate":4,
-      "initialAmt": 12872,
+      "initialAmt": 12000,
       "term": 28,
-      "targetAmt": 8.745201481937362e+21
+      "targetAmt": 50000
     },
     {
       "investment_id": "594a289ff612da9d78eccf3d",
             "rate":4,
       "initialAmt": 46740,
       "term": 19,
-      "targetAmt": 3.7482125446658654e+21
+      "targetAmt": 300000
     },  {
         "investment_id": "594a289f2e83a6bef7d99e9c",
       "rate":4,
-        "initialAmt": 43703,
+        "initialAmt": 3000,
         "term": 17,
-        "targetAmt": 2.935955977766451e+21
+        "targetAmt": 20000
       },
       {
         "investment_id": "594a289f5d85d129238511ce",
             "rate":4,
         "initialAmt": 13769,
         "term": 8,
-        "targetAmt": 3.057235711243136e+21
+        "targetAmt": 20000
       }
   ];
 console.log("investments: ",investments);

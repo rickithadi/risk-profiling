@@ -14,15 +14,15 @@ var uid=0;
       },
       {
         "id": "595b216f97a5e5907c12345",
-        "rate": 29,
-        "amount": 481397,
+        "rate": 7,
+        "amount": 4800,
         "endDate": "2017",
         "startDate": "2039"
       },
       {
         "id": "595b216f97a5e369",
-        "rate": 29,
-        "amount": 481397,
+        "rate": 9,
+        "amount": 50007,
         "endDate": "2017",
         "startDate": "2039"
       }

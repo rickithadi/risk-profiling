@@ -26,72 +26,50 @@ var data=[];
      $scope.view = function (id) {
   //put stuff in goes to getvalues
      }
-
-
      $scope.infoChart_options = {
 
        options: {
          //This is the Main Highcharts chart config. Any Highchart options are valid here.
          //will be overriden by values specified below.
          chart: {
-            type: 'pie',
-            //marginLeft: -410
-        },
-        credits: {
-            enabled: false
-        },
-        colors: [
-            '#5485BC', '#AA8C30', '#5C9384', '#981A37', '#FCB319', '#86A033', '#614931', '#00526F', '#594266', '#cb6828', '#aaaaab', '#a89375'],
-        title: {
+           type: 'spline'
+         },
 
-            verticalAlign: 'middle',
-            //x: -210,
-            //y: -40,
-            useHTML: true,
-            style: {
-                display: 'block',
-                color: 'grey',
-                fontFamily: 'Helvetica Neue'
-            }
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                showInLegend: true,
-                dataLabels: {
-                    enabled: false,
+         tooltip: {
+           style: {
+             padding: 10,
+             fontWeight: 'bold'
+           }
+         }
+       },
+       credits: {
+         enabled: false
+       },
 
-                }
-            }
-        },
-        legend: {
-            enabled: true,
-            useHTML: true,
-            verticalAlign: 'middle',
-            //x: 100,
-            labelFormatter: function () {
-                return this.y + ' (' + this.percentage.toFixed(0) + '%) - ' + this.name;
-            },
-            itemDistance: 0,
-            //itemWidth: 190,
-            itemStyle: {
-                //width: 180,
-                font: 'Helvetica Neue',
-                fontSize: '15px'
-            }
-        },
-        series: [{
-            name: 'loan',
-            innerSize: '50%'
-        }, {
-            name: 'Plataforma',
-            size: '80%',
-            innerSize: '65%',
-            showInLegend: true,
-            data: data
-        }]
-    }
+       series : [{ data: [] }],
+       title: {
+         text: 'Cumulative Return'
+       },
+       //Boolean to control showing loading status on chart (optional)
+       //Could be a string if you want to show specific loading text.
+       loading: false,
+       //Configuration for the xAxis (optional). Currently only one x axis can be dynamically controlled.
+       //properties currentMin and currentMax provided 2-way binding to the chart's maximum and minimum
+       xAxis: {
+         tickInterval: 1
+       },
+       yAxis: {
+         title: {
+           text: ''
+         }
+       },
+       //Whether to use Highstocks instead of Highcharts (optional). Defaults to false.
+       useHighStocks: false,
+       //size (optional) if left out the chart will default to size of the div or something sensible.
+       size: {
+         width: 600,
+         height: 400
+       }
 
- }
-});
+     }
+})

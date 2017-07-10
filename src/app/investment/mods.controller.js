@@ -74,22 +74,4 @@ $scope.newinvestment = {};
         }
 
 
-    // $scope.getFinalValue = function(investment_id) {
-    //     $scope.newinvestment = angular.copy(investmentService.get(investment_id));
-    //       var cash = $scope.newinvestment.initialAmt;
-    //        var rate=5;
-    //        var term=$scope.newinvestment.term;
-    //      updateDataG=[];
-    //         for (var i = 0; i < term; i++) {
-    //         //console.log("cash1:",cash);
-    //         cash = cash * rate / 100 + cash;
-    //         console.log("cash:", cash);
-    //         updateDataG.push(cash);
-    //
-    //       }
-    //       console.log("array to update:", updateDataG);
-    //
-    //       $scope.infoChart_options.series[0].data = updateDataG;
-    //     }
-
 })
