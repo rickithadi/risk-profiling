@@ -21,6 +21,8 @@ angular.module('inspinia')
           return {
               restrict: 'A',
               scope: {
+                model: '=ngModel',
+                apply: '=apply',
                   rangeOptions: '=',
                   saveInstance: '=',
                   idxInstance: '='
@@ -28,11 +30,14 @@ angular.module('inspinia')
               link: function ( $scope, elem, attrs) {
                   elem.ionRangeSlider($scope.rangeOptions);
                   $scope.saveInstance($(elem).data("ionRangeSlider"),$scope.idxInstance);
+                  scope.$watch('model',function () {
+          elem.ionRangeSlider(scope.rangeOptions);
                       //console.log("save_instance" + $(elem).data("ionRangeSlider"));
 
-              }
+              })
           }
-    })
+    }
+  })
     .directive('minimalizaSidebar', function ($timeout) {
         return {
             restrict: 'A',
