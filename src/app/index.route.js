@@ -132,11 +132,17 @@
           url: "/retirement",
           templateUrl: "app/components/common/content.html"
         })
-        .state('retirement.main', {
-          url: "/retirement.main",
-          templateUrl: "app/retirement/retirement.html",
-          data: { pageTitle: 'income' }
+        .state('retirement.home', {
+          url: "/retirement.home",
+          templateUrl: "app/retirement/home.html",
+          data: { pageTitle: 'gna die soon' }
         })
+        .state('retirement.retirement2', {
+                  url: "/retirement2",
+                  templateUrl: "app/retirement/retirement2.html",
+                  data: { pageTitle: 'how much time do you have' },
+                  access: { requiredLogin: true }
+                })
       ;
 
     $urlRouterProvider.otherwise('/index/main');
