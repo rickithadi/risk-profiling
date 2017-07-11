@@ -1,10 +1,16 @@
-angular.module('inspinia').controller('retireController', function($scope, $window) {
-
+angular.module('inspinia').controller('retireController', function(retireService,$scope, $window) {
+$scope.oldguy={};
+  $scope.oldguy = retireService.list();
   $scope.apply = false;
-  $scope.income = 6000;
-$scope.retIncome=0;
-  $scope.percentage = 70;
-  //$scope.retIncome=$scope.percentage/100 *$scope.income;
+//  $scope.income = 6000;
+//$scope.retIncome=0;
+  //$scope.percentage = 70;
+  // $scope.retIncome=$scope.percentage/100 *$scope.oldguy.income;
+
+
+
+console.log($scope.oldguy);
+
   $scope.redirect = function() {
     $scope.retIncome = $scope.percentage / 100 * $scope.income;
     console.log("income for retiremnt:",   $scope.retIncome);
@@ -25,8 +31,8 @@ $scope.retIncome=0;
       if (data.input.attr('id') == 'slider_init') {
         console.log('slider_init:', data.from);
 
-        $scope.percentage = data.from
-        console.log($scope.percentage);
+        $scope.oldguy.percentage = data.from
+        console.log($scope.oldguy.percentage);
 
       }
 
