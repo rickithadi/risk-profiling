@@ -1,19 +1,43 @@
-angular.module('inspinia').controller('retireController', function(retireService,$scope, $window) {
-$scope.oldguy={};
-  $scope.oldguy = retireService.list();
+angular.module('inspinia').controller('retireController', function(retireService, $scope, $window) {
+
   $scope.apply = false;
-//  $scope.income = 6000;
-//$scope.retIncome=0;
-  //$scope.percentage = 70;
-  // $scope.retIncome=$scope.percentage/100 *$scope.oldguy.income;
+
+  $scope.income ;
+  //$scope.retIncome=0;
+  $scope.percentage = 0;
+  $scope.retIncome = $scope.percentage / 100 * $scope.income;
 
 
-
-console.log($scope.oldguy);
+  $scope.setName = function(name) {
+    console.log("setName")
+    retireService.setName(name);
+  }
+  $scope.getName = function() {
+    console.log("in controller");
+    retireService.getName();
+  }
+  // $scope.setIncome = function(income) {
+  //   console.log("setIncome")
+  //   retireService.setIncome();
+  // }
+  // $scope.getIncome = function() {
+  //   console.log("getIncome")
+  //   retireService.getIncome();
+  //   console.log("income from service",retireService.income)
+  //   retireService.income=$scope.income;
+  //   console.log("local income", $scope.income)
+  // }
+  // $scope.setPercentage = function(percentage) {
+  //   retireService.setPercentage();
+  // }
+  $scope.getPercentage = function() {
+    retireService.getPercentage();
+    retireService.percentage=$scope.percentage;
+  }
 
   $scope.redirect = function() {
     $scope.retIncome = $scope.percentage / 100 * $scope.income;
-    console.log("income for retiremnt:",   $scope.retIncome);
+    console.log("income for retiremnt:", $scope.retIncome);
     $window.location.href = '#/retirement/retirement2';
   }
 
@@ -31,8 +55,8 @@ console.log($scope.oldguy);
       if (data.input.attr('id') == 'slider_init') {
         console.log('slider_init:', data.from);
 
-        $scope.oldguy.percentage = data.from
-        console.log($scope.oldguy.percentage);
+        $scope.percentage = data.from
+        console.log($scope.percentage);
 
       }
 
