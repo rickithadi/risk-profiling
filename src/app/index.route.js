@@ -134,7 +134,7 @@
         })
         .state('retirement.home', {
           url: "/retirement.home",
-          templateUrl: "app/retirement/home.html",
+          templateUrl: "app/retirement/retirement1.html",
           data: { pageTitle: 'gna die soon' }
         })
         .state('retirement.retirement2', {
@@ -143,6 +143,12 @@
                   data: { pageTitle: 'how much time do you have' },
                   access: { requiredLogin: true }
                 })
+                .state('retirement.retirement1', {
+                          url: "/retirement3",
+                          templateUrl: "app/retirement/retirement3.html",
+                          data: { pageTitle: 'deets' },
+                          access: { requiredLogin: true }
+                        })
       ;
 
     $urlRouterProvider.otherwise('/index/main');

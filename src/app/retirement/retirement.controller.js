@@ -1,32 +1,31 @@
 angular.module('inspinia').controller('retireController', function(retireService, $scope, $window) {
 
   $scope.apply = false;
-
-  $scope.income ;
+var penis=0;
+//  $scope.income;
   //$scope.retIncome=0;
-  $scope.percentage = 0;
+  $scope.percentage =70;
   $scope.retIncome = $scope.percentage / 100 * $scope.income;
 
 
-  $scope.setName = function(name) {
-    console.log("setName")
-    retireService.setName(name);
-  }
-  $scope.getName = function() {
-    console.log("getName")
-    retireService.getName();
-  }
+  // $scope.setName = function(name) {
+  //   console.log("setName")
+  //   retireService.setName(name);
+  // }
+  // $scope.getName = function() {
+  //   console.log("getName")
+  //   retireService.getName();
+  // }
   // $scope.setIncome = function(income) {
   //   console.log("setIncome")
-  //   retireService.setIncome();
+  //   retireService.setIncome(income);
   // }
-  // $scope.getIncome = function() {
-  //   console.log("getIncome")
-  //   retireService.getIncome();
-  //   console.log("income from service",retireService.income)
-  //   retireService.income=$scope.income;
-  //   console.log("local income", $scope.income)
-  // }
+  $scope.getIncome = function() {
+    console.log("getIncome")
+    retireService.getIncome();
+    retireService.income=$scope.income;
+    console.log("local income", $scope.income)
+  }
   // $scope.setPercentage = function(percentage) {
   //   retireService.setPercentage();
   // }
@@ -63,5 +62,12 @@ angular.module('inspinia').controller('retireController', function(retireService
     }
 
   };
+
+  var init = function () {
+      $scope.getIncome();
+      $scope.getPercentage();
+};
+// and fire it after definition
+init();
 
 })

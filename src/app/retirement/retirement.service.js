@@ -1,7 +1,7 @@
 angular.module('inspinia').service('retireService', function() {
   var age = 20; //private data
   var name ="jo";
-  var income = 6000;
+  var income ;
   var percentage = 70;
 
   function setName(v_name) {
@@ -12,14 +12,14 @@ angular.module('inspinia').service('retireService', function() {
     console.log('name', name);
     return name;
   }
-  // function setIncome(v_income) {
-  //   income = v_income;
-  //   console.log(income);
-  // }
-  // function getIncome() {
-  //   console.log('income', income);
-  //   return income;
-  // }
+  function setIncome(v_income) {
+    income = v_income;
+    console.log(income);
+  }
+  function getIncome() {
+    console.log('income', income);
+    return income;
+  }
   function setPercentage(v_percentage) {
     percentage = v_percentage;
     console.log(percentage);
@@ -33,10 +33,10 @@ angular.module('inspinia').service('retireService', function() {
   return {
     getName: getName,
     setName: setName,
-    // getIncome: getIncome,
-    // setIncome: setIncome,
+    getIncome: getIncome,
+    setIncome: setIncome,
     getPercentage: getPercentage,
     setPercentage: setPercentage
 
   }
-})
+});

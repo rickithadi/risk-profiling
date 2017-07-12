@@ -1,13 +1,10 @@
 <div ng-controller="retireController">
   <row>
     <center>
-      <h1> current salary</h1>
-      <center>
-        <input type="text" ng-model="name" />
-        <button ng-click="setName(name)">good enough for me!</button>
+
   </row>
   <center>
-    <h1> monthly allowance during retirement</h1>
+    <h1> {{name}} monthly allowance during retirement</h1>
     <center>
       <div id="container" style="min-width: 310px; height: 200px; max-width: 600px; margin: 0 auto">
 
@@ -24,10 +21,9 @@
       </row>
 
       <div class="btn-group pull-center">
-        <a href="#/retirement/retirement2">
+        <a href="#/retirement/retirement1">
           <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Explore</button>
         </a>
-        <button ng-click="getName()">good enough for me!</button>
       </div>
 
 
