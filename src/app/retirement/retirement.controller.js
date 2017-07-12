@@ -13,7 +13,7 @@ angular.module('inspinia').controller('retireController', function(retireService
     retireService.setName(name);
   }
   $scope.getName = function() {
-    console.log("in controller");
+    console.log("getName")
     retireService.getName();
   }
   // $scope.setIncome = function(income) {
