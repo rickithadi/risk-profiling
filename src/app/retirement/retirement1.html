@@ -1,33 +1,52 @@
-<div ng-controller="detailController">
+<div ng-controller="retireController">
+
+  <div class="col-md-4">
+    <br></br>
+    <br></br>
+    <div class="col-md-2>" <h3> Name </h3> <input type="text" ng-model="name" ng-blur="setName(name)" />
+    </div>
+    <br></br>
+    <div class="col-md-2>" <h3> income </h3> <input type="number" ng-model="income" ng-blur="setIncome(income)" />
+    </div>
+    <br></br>
+    <div class="col-md-2>" <h3> age </h3> <input type="number" ng-model="age" ng-blur="setAge(age)" />
+    </div>
+    <br></br>
+    <div class="col-md-2>" <h3> retirement age </h3> <input type="number" ng-model="retAge" ng-blur="setRetAge(retAge)" />
+    </div>
+    <br></br>
+    <div class="col-md-2>" <h3> retirement duration </h3> <input type="number" ng-model="duration" ng-blur="setDuration(duration)" />
+    </div>
+
+</div>
+
+
+</form>
+
+
   <row>
-    <center>
-      <h1> Name</h1>
-      <center>
-        <input type="text" ng-model="name" />
-
-
-        <center>
-          <h1> income</h1>
-          <center>
-            <input type="number" ng-model="income" />
-
-
-
-            <!-- <center>
-              <h1> Salary</h1>
-              <center>
-                <input type="number" ng-model="" /> -->
+    <div class="col-lg-8">
 
   </row>
+  <center>
+    <h1> {{name}} your preferred monthly allowance during retirement is</h1>
+    <br></br>
 
-<row>
-  <center>
-  <div class="btn-group pull-center">
-    <a href="#/retirement/retirement3">
-      <button ng-click="setName(name); setIncome(income)"  class="btn btn-white btn-xl"><i class="fa fa-share"></i> Explore</button>
-    </a>
-  </div>
-  <center>
-</row>
+    <div id="container" style="min-width: 310px; height: 200px; max-width: 600px; margin: 0 auto">
+
+      <input id="slider_init" ion-range-slider range-options="slider_init_options" ng-model="percentage">
+
+    </div>
+
+
+    <row>
+      <h1>
+{{percentage}}% X {{income}} = {{percentage/100 * income}}
+
+</h1>
+    </row>
+
+
+    </div>
 
 </div>

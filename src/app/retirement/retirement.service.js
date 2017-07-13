@@ -1,8 +1,10 @@
 angular.module('inspinia').service('retireService', function() {
-  var age = 20; //private data
-  var name ="jo";
-  var income ;
+  var age ; //private data
+  var name = "";
+  var income;
   var retIncome;
+  var retAge;
+  var retDuration;
   var percentage = 70;
 
   function setName(v_name) {
@@ -22,8 +24,8 @@ angular.module('inspinia').service('retireService', function() {
     return income;
   }
   function setRetIncome(v_retIncome) {
-      retIncome=v_retIncome;
-      console.log(retIncome);
+    retIncome = v_retIncome;
+    console.log(retIncome);
 
   }
   function getRetIncome() {
@@ -40,6 +42,34 @@ angular.module('inspinia').service('retireService', function() {
 
   }
 
+  function setDuration(v_duration) {
+    duration = v_duration;
+    console.log(duration);
+  }
+  function getDuration() {
+    console.log('duration', duration);
+    return duration;
+
+  }
+
+  function setAge(v_age) {
+    age = v_age;
+    console.log(age);
+  }
+  function getAge() {
+    console.log('age', age);
+    return age;
+  }
+
+  function setRetAge(v_retAge) {
+    retAge = v_retAge;
+    console.log(retAge);
+  }
+  function getRetAge() {
+    console.log('retAge', retAge);
+    return retAge;
+  }
+
   return {
     getName: getName,
     setName: setName,
@@ -48,7 +78,13 @@ angular.module('inspinia').service('retireService', function() {
     getPercentage: getPercentage,
     setPercentage: setPercentage,
     getRetIncome: getRetIncome,
-    setRetIncome: setRetIncome
+    setRetIncome: setRetIncome,
+    getDuration: getDuration,
+    setDuration: setDuration,
+    getAge: getAge,
+    setAge: setAge,
+    getRetAge: getRetAge,
+    setRetAge: setRetAge
 
   }
 });
