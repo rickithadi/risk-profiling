@@ -1,14 +1,19 @@
 angular.module('inspinia').controller('retireController', function(retireService, $scope, $window) {
 
   $scope.apply = false;
-$scope.name=retireService.getName();
-
-  $scope.income=retireService.getIncome();
+  $scope.percentage = retireService.getPercentage();
+  $scope.name = retireService.getName();
+  $scope.retIncome=retireService.getRetIncome();
+  $scope.income = retireService.getIncome();
 
   console.log("loacl income", $scope.income)
-  //$scope.retIncome=0;
-  $scope.percentage=retireService.getPercentage();
-  $scope.retIncome = $scope.percentage / 100 * $scope.income;
+
+
+  $scope.setRetIncome = function() {
+  var hold=$scope.percentage/100 * $scope.income;
+  retireService.setRetIncome(hold);
+
+  }
 
   $scope.slider_init_options = {
     min: 0,
@@ -34,14 +39,5 @@ $scope.name=retireService.getName();
   };
 
 
-//   var init = function () {
-//     console.log("loacl inc", $scope.income)
-//     //  $scope.getIncome();
-//       $scope.getPercentage();
-//       $scope.getName();
-//       console.log("hi")
-// };
-// // and fire it after definition
-// init();
 
 })
