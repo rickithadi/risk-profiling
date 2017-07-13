@@ -1,5 +1,5 @@
 angular.module('inspinia').service('retireService', function() {
-  var age ; //private data
+  var age; //private data
   var name = "";
   var income;
   var retIncome;
