@@ -33,6 +33,7 @@ $scope.newinvestment = {};
             //will be overriden by values specified below.
             chart: {
               type: 'spline'
+
             },
 
             tooltip: {

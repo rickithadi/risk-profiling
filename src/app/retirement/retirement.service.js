@@ -1,10 +1,10 @@
 angular.module('inspinia').service('retireService', function() {
-  var age; //private data
+  var age=20; //private data
   var name = "";
-  var income;
+  var income=5000;
   var retIncome;
-  var retAge;
-  var retDuration;
+  var retAge=65;
+  var duration=15;
   var percentage = 70;
 
   function setName(v_name) {
@@ -22,6 +22,14 @@ angular.module('inspinia').service('retireService', function() {
   function getIncome() {
     console.log('income', income);
     return income;
+  }
+  function setGoal(v_goal) {
+    goal = v_goal;
+    console.log(goal);
+  }
+  function getGoal() {
+    console.log('goal', goal);
+    return goal;
   }
   function setRetIncome(v_retIncome) {
     retIncome = v_retIncome;
@@ -84,7 +92,9 @@ angular.module('inspinia').service('retireService', function() {
     getAge: getAge,
     setAge: setAge,
     getRetAge: getRetAge,
-    setRetAge: setRetAge
+    setRetAge: setRetAge,
+    getGoal:setGoal,
+    setGoal:setGoal
 
   }
 });
