@@ -31,19 +31,22 @@
     <h1> {{name}} your preferred monthly allowance during retirement is</h1>
     <br></br>
 
-    <div id="container" style="min-width: 310px; height: 100px; max-width: 600px; margin: 0 auto"  ng-blur="setRetIncome()">
+    <div id="container" style="min-width: 310px; height: 100px; max-width: 600px; margin: 0 auto">
 
-      <input id="slider_init" ion-range-slider range-options="slider_init_options" ng-model="percentage" ng-blur="setRetIncome()">
+      <input id="slider_init" ion-range-slider range-options="slider_init_options" ng-model="percentage" >
 
     </div>
 
-
+<br></br>
     <row>
       <h1>
 {{percentage}}% X {{income}} = {{percentage/100 * income}}
 
 </h1>
     </row>
+    <br></br>
+    <br></br>
+    <br></br>
 
 
     </div>

@@ -13,8 +13,10 @@ angular.module('inspinia').controller('retireController', function(retireService
 
   $scope.setRetIncome = function() {
     var hold = $scope.percentage / 100 * $scope.income;
+    console.log("hold",hold);
     retireService.setRetIncome(hold);
-    console.log("retire",retIncome);
+  //  console.log("retire", retIncome);
+
 
   }
   $scope.setGoal = function() {
@@ -63,6 +65,7 @@ angular.module('inspinia').controller('retireController', function(retireService
 
         $scope.percentage = data.from
         console.log($scope.percentage);
+        $scope.setRetIncome();
 
       }
 
