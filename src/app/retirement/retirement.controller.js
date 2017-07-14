@@ -12,16 +12,18 @@ angular.module('inspinia').controller('retireController', function(retireService
   console.log("local income", $scope.income)
 
   $scope.setRetIncome = function() {
-    var hold = $scope.percentage / 100 * $scope.income;
-    console.log("hold",hold);
-    retireService.setRetIncome(hold);
+    var v_retIncome = $scope.percentage / 100 * $scope.income;
+    console.log("v_retIncome",v_retIncome);
+    retireService.setRetIncome(v_retIncome);
+      $scope.retIncome = retireService.getRetIncome();
   //  console.log("retire", retIncome);
 
 
   }
   $scope.setGoal = function() {
-    var hold = ($scope.retIncome * 12) * $scope.duration;
-    retireService.setRetIncome(hold);
+    var v_goal = ($scope.retIncome * 12) * $scope.duration;
+    console.log("v_goal",v_goal);
+    retireService.setGoal(v_goal);
 
   }
 
@@ -66,6 +68,7 @@ angular.module('inspinia').controller('retireController', function(retireService
         $scope.percentage = data.from
         console.log($scope.percentage);
         $scope.setRetIncome();
+        $scope.setGoal();
 
       }
 
