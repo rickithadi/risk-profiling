@@ -9,22 +9,19 @@ angular.module('inspinia').controller('retireController', function(retireService
   $scope.goal = retireService.getGoal();
   $scope.income = retireService.getIncome();
   $scope.retAge = retireService.getRetAge();
-  console.log("local income", $scope.income)
+  $scope.dieAge=$scope.retAge+$scope.duration;
+  var graphData=[[$scope.retAge,$scope.goal],[$scope.dieAge,0]];
 
   $scope.setRetIncome = function() {
     var v_retIncome = $scope.percentage / 100 * $scope.income;
     console.log("v_retIncome",v_retIncome);
     retireService.setRetIncome(v_retIncome);
       $scope.retIncome = retireService.getRetIncome();
-  //  console.log("retire", retIncome);
-
-
   }
   $scope.setGoal = function() {
     var v_goal = ($scope.retIncome * 12) * $scope.duration;
     console.log("v_goal",v_goal);
     retireService.setGoal(v_goal);
-
   }
 
   $scope.setName = function(name) {
@@ -69,8 +66,8 @@ angular.module('inspinia').controller('retireController', function(retireService
         console.log($scope.percentage);
         $scope.setRetIncome();
         $scope.setGoal();
-
-      }
+         $scope.infoChart_options.series[0].data = graphData;
+            }
 
     }
 
@@ -82,8 +79,8 @@ angular.module('inspinia').controller('retireController', function(retireService
       //This is the Main Highcharts chart config. Any Highchart options are valid here.
       //will be overriden by values specified below.
       chart: {
-        type: 'spline',
-        pointStart: retireService.getRetAge()
+        type: 'spline'
+
       },
 
       tooltip: {
@@ -97,11 +94,9 @@ angular.module('inspinia').controller('retireController', function(retireService
       enabled: false
     },
 
-    series: [
-      {
-        data: [90, 90]
-      }
-    ],
+    series : [{
+       data: [] }],
+
     title: {
       text: 'retirement'
     },
@@ -109,16 +104,7 @@ angular.module('inspinia').controller('retireController', function(retireService
     //Could be a string if you want to show specific loading text.
     loading: false,
     //Configuration for the xAxis (optional). Currently only one x axis can be dynamically controlled.
-    //properties currentMin and currentMax provided 2-way binding to the chart's maximum and minimum
-    xAxis: {
-      min: retireService.getRetAge(),
-      tickInterval: 1
-    },
-    yAxis: {
-      title: {
-        text: ''
-      }
-    },
+
     //Whether to use Highstocks instead of Highcharts (optional). Defaults to false.
     useHighStocks: false,
     //size (optional) if left out the chart will default to size of the div or something sensible.

@@ -3,7 +3,7 @@ angular.module('inspinia').service('retireService', function() {
   var name = "";
   var income=5000;
   var retIncome;
-  var retAge=65;
+  var retAge=50;
   var duration=15;
   var percentage = 70;
 
