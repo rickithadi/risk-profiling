@@ -10,27 +10,31 @@ angular.module('inspinia').controller('retireController', function(retireService
   $scope.income = retireService.getIncome();
   $scope.retAge = retireService.getRetAge();
 
-  function getGraph(v_retAge,v_duration,v_goal,v_age){
-var dieAge=v_retAge+v_duration;
+  function getRetGraph(v_retAge, v_duration, v_goal, v_age) {
+var dieAge = v_retAge + v_duration;
 
-var data=[[v_age,0],[v_retAge,v_goal],[dieAge,0]]
+var data = [  [  v_retAge, v_goal  ],  [dieAge, 0]];
+console.log("data:", data);
+return data;
+}
+
+  function getProjectedGraph(v_retAge,v_goal,v_age){
+var data=[[v_age,0],[v_retAge,v_goal]];
 console.log("data:",data);
 return data;
   }
 
-
-
- //$scope.graphData=[[$scope.retAge,$scope.goal],[$scope.dieAge,0]];
+  //$scope.graphData=[[$scope.retAge,$scope.goal],[$scope.dieAge,0]];
 
   $scope.setRetIncome = function() {
     var v_retIncome = $scope.percentage / 100 * $scope.income;
-    console.log("v_retIncome",v_retIncome);
+    console.log("v_retIncome", v_retIncome);
     retireService.setRetIncome(v_retIncome);
-      $scope.retIncome = retireService.getRetIncome();
+    $scope.retIncome = retireService.getRetIncome();
   }
-  $scope.setGoal = function(v_retIncome,v_duration) {
+  $scope.setGoal = function(v_retIncome, v_duration) {
     var v_goal = (v_retIncome * 12) * v_duration;
-    console.log("v_goal",v_goal);
+    console.log("v_goal", v_goal);
     retireService.setGoal(v_goal);
   }
 
@@ -75,21 +79,19 @@ return data;
         $scope.percentage = data.from
         console.log($scope.percentage);
         $scope.setRetIncome();
-       $scope.setGoal($scope.retIncome,$scope.duration);
+        $scope.setGoal($scope.retIncome, $scope.duration);
 
-         $scope.infoChart_options.series[0].data = getGraph($scope.retAge,$scope.duration,retireService.getGoal(),$scope.age),[[0,0],[30,100000]];
-            }
-
-    }
+        $scope.infoChart_options.series[0].data = getRetGraph($scope.retAge, $scope.duration, retireService.getGoal(), $scope.age);
+        $scope.infoChart_options.series[1].data = getProjectedGraph($scope.retAge,retireService.getGoal(),$scope.age);
 
   };
-
-
-  $scope.updateGraph = function() {
-  console.log("updating");
-   $scope.infoChart_options.series[0].data = getGraph($scope.retAge,$scope.duration,retireService.getGoal());
-
 }
+}
+  $scope.updateGraph = function() {
+    console.log("updating");
+    $scope.infoChart_options.series[0].data = getRetGraph($scope.retAge, $scope.duration, retireService.getGoal());
+    // $scope.infoChart_options.series[1].data =getGraph($scope.retAge,$scope.duration,retireService.getGoal());
+  }
 
   $scope.infoChart_options = {
 
@@ -97,8 +99,8 @@ return data;
       //This is the Main Highcharts chart config. Any Highchart options are valid here.
       //will be overriden by values specified below.
       chart: {
-        type: 'areaspline',
-         zoomType: 'xy'
+        //  type: 'areaspline',
+        zoomType: 'xy'
 
       },
 
@@ -113,15 +115,27 @@ return data;
       enabled: false
     },
 
-    series : [{
-      name:"ideally",
-       data: [],
-      color: '#FF0000'},
-
+    series: [
       {
-        name:"whats real",
-         data: [[20,0],[60,700000]],
-        color: '#125655'}
+        type: "line",
+        name: "ideally",
+        data: [],
+        color: '#FF0000',
+        dashStyle: 'solid',
+        zoneAxis: 'x',
+        zones: [
+          {
+            value: 50
+          }, {
+            dashStyle: 'Dot'
+          }
+        ]
+      }, {
+        type: "areaspline",
+        name: "whats real",
+        data: [],
+        color: '#125655'
+      }
 
     ],
 
