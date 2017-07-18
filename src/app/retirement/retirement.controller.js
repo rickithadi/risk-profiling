@@ -10,10 +10,10 @@ angular.module('inspinia').controller('retireController', function(retireService
   $scope.income = retireService.getIncome();
   $scope.retAge = retireService.getRetAge();
 
-  function getGraph(v_retAge,v_duration,v_goal){
+  function getGraph(v_retAge,v_duration,v_goal,v_age){
 var dieAge=v_retAge+v_duration;
 
-var data=[[v_retAge,v_goal],[dieAge,0]]
+var data=[[v_age,0],[v_retAge,v_goal],[dieAge,0]]
 console.log("data:",data);
 return data;
   }
@@ -77,7 +77,7 @@ return data;
         $scope.setRetIncome();
        $scope.setGoal($scope.retIncome,$scope.duration);
 
-         $scope.infoChart_options.series[0].data = getGraph($scope.retAge,$scope.duration,retireService.getGoal());
+         $scope.infoChart_options.series[0].data = getGraph($scope.retAge,$scope.duration,retireService.getGoal(),$scope.age),[[0,0],[30,100000]];
             }
 
     }
@@ -97,7 +97,8 @@ return data;
       //This is the Main Highcharts chart config. Any Highchart options are valid here.
       //will be overriden by values specified below.
       chart: {
-        type: 'spline'
+        type: 'areaspline',
+         zoomType: 'xy'
 
       },
 
@@ -113,7 +114,16 @@ return data;
     },
 
     series : [{
-       data: [] }],
+      name:"ideally",
+       data: [],
+      color: '#FF0000'},
+
+      {
+        name:"whats real",
+         data: [[20,0],[60,700000]],
+        color: '#125655'}
+
+    ],
 
     title: {
       text: 'retirement'
