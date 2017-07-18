@@ -76,13 +76,7 @@ return data;
         console.log($scope.percentage);
         $scope.setRetIncome();
        $scope.setGoal($scope.retIncome,$scope.duration);
-      
 
-           // var dieAge=$scope.retAge+$scope.duration;
-        // var retAge=retireService.getRetAge();
-        // var goal=retireService.getGoal();
-        // var graphData=[[retAge,goal],[dieAge,0]];
-      //  console.log("graph". $scope.graphData);
          $scope.infoChart_options.series[0].data = getGraph($scope.retAge,$scope.duration,retireService.getGoal());
             }
 
@@ -91,7 +85,11 @@ return data;
   };
 
 
+  $scope.updateGraph = function() {
+  console.log("updating");
+   $scope.infoChart_options.series[0].data = getGraph($scope.retAge,$scope.duration,retireService.getGoal());
 
+}
 
   $scope.infoChart_options = {
 
