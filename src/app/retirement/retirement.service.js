@@ -1,81 +1,83 @@
 angular.module('inspinia').service('retireService', function() {
-  var age=20; //private data
-  var name = "";
-  var income=5000;
-  var retIncome;
-  var retAge=50;
-  var duration=15;
-  var percentage = 70;
+  var vm = this
+vm.age=20; //private data
+ vm.name = "";
+  vm.income=5000;
+  vm.retIncome;
+  vm.retAge=50;
+  vm.duration=15;
+  vm.percentage = 70;
+  vm.goal=0;
 
   function setName(v_name) {
-    name = v_name;
-    console.log(name);
+    vm.name = v_name;
+    console.log(vm.name);
   }
   function getName() {
-    console.log('name', name);
-    return name;
+    console.log('name', vm.name);
+    return vm.name;
   }
   function setIncome(v_income) {
-    income = v_income;
-    console.log(income);
+    vm.income = v_income;
+    console.log(vm.income);
   }
   function getIncome() {
-    console.log('income', income);
-    return income;
+    console.log('income', vm.income);
+    return vm.income;
   }
   function setGoal(v_goal) {
-    goal = v_goal;
-    console.log(goal);
+    vm.goal = v_goal;
+    console.log(vm.goal);
   }
   function getGoal() {
-    console.log('goal', goal);
-    return goal;
+    console.log('goal', vm.goal);
+    return vm.goal;
   }
   function setRetIncome(v_retIncome) {
-    retIncome = v_retIncome;
-    console.log(retIncome);
+    vm.retIncome = v_retIncome;
+    console.log(vm.retIncome);
 
   }
   function getRetIncome() {
-    console.log('retire income', retIncome);
-    return retIncome;
+    console.log('retire income', vm.retIncome);
+    return vm.retIncome;
   }
   function setPercentage(v_percentage) {
-    percentage = v_percentage;
-    console.log(percentage);
+    vm.percentage = v_percentage;
+    console.log(vm.percentage);
   }
   function getPercentage() {
-    console.log('percentage', percentage);
-    return percentage;
+    console.log('percentage', vm.percentage);
+    return vm.percentage;
 
   }
 
   function setDuration(v_duration) {
-    duration = v_duration;
-    console.log(duration);
+    vm.duration = v_duration;
+    console.log(vm.duration);
   }
   function getDuration() {
-    console.log('duration', duration);
-    return duration;
+    console.log('duration', vm.duration);
+    return vm.duration;
 
   }
 
   function setAge(v_age) {
-    age = v_age;
-    console.log(age);
+    vm.age = v_age;
+    console.log(vm.age);
   }
   function getAge() {
-    console.log('age', age);
-    return age;
+    console.log('age', vm.age);
+    return vm.age;
   }
 
   function setRetAge(v_retAge) {
-    retAge = v_retAge;
-    console.log(retAge);
+    vm.retAge = v_retAge;
+    console.log(vm.retAge);
   }
   function getRetAge() {
-    console.log('retAge', retAge);
-    return retAge;
+    console.log('retAge', vm.retAge);
+    return vm.retAge;
   }
 
   return {
@@ -93,7 +95,7 @@ angular.module('inspinia').service('retireService', function() {
     setAge: setAge,
     getRetAge: getRetAge,
     setRetAge: setRetAge,
-    getGoal:setGoal,
+    getGoal:getGoal,
     setGoal:setGoal
 
   }

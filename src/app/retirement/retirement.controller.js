@@ -9,8 +9,18 @@ angular.module('inspinia').controller('retireController', function(retireService
   $scope.goal = retireService.getGoal();
   $scope.income = retireService.getIncome();
   $scope.retAge = retireService.getRetAge();
-  $scope.dieAge=$scope.retAge+$scope.duration;
-  var graphData=[[$scope.retAge,$scope.goal],[$scope.dieAge,0]];
+
+  function getGraph(v_retAge,v_duration,v_goal){
+var dieAge=v_retAge+v_duration;
+
+var data=[[v_retAge,v_goal],[dieAge,0]]
+console.log("data:",data);
+return data;
+  }
+
+
+
+ //$scope.graphData=[[$scope.retAge,$scope.goal],[$scope.dieAge,0]];
 
   $scope.setRetIncome = function() {
     var v_retIncome = $scope.percentage / 100 * $scope.income;
@@ -18,8 +28,8 @@ angular.module('inspinia').controller('retireController', function(retireService
     retireService.setRetIncome(v_retIncome);
       $scope.retIncome = retireService.getRetIncome();
   }
-  $scope.setGoal = function() {
-    var v_goal = ($scope.retIncome * 12) * $scope.duration;
+  $scope.setGoal = function(v_retIncome,v_duration) {
+    var v_goal = (v_retIncome * 12) * v_duration;
     console.log("v_goal",v_goal);
     retireService.setGoal(v_goal);
   }
@@ -65,13 +75,23 @@ angular.module('inspinia').controller('retireController', function(retireService
         $scope.percentage = data.from
         console.log($scope.percentage);
         $scope.setRetIncome();
-        $scope.setGoal();
-         $scope.infoChart_options.series[0].data = graphData;
+       $scope.setGoal($scope.retIncome,$scope.duration);
+      
+
+           // var dieAge=$scope.retAge+$scope.duration;
+        // var retAge=retireService.getRetAge();
+        // var goal=retireService.getGoal();
+        // var graphData=[[retAge,goal],[dieAge,0]];
+      //  console.log("graph". $scope.graphData);
+         $scope.infoChart_options.series[0].data = getGraph($scope.retAge,$scope.duration,retireService.getGoal());
             }
 
     }
 
   };
+
+
+
 
   $scope.infoChart_options = {
 
