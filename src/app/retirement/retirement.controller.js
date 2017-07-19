@@ -91,7 +91,11 @@ angular.module('inspinia').controller('retireController', function(retireService
 
         $scope.percentage = data.from
         console.log("percentage", $scope.percentage);
-      $scope.init();
+         $scope.setRetIncome($scope.percentage, $scope.income);
+         $scope.setGoal($scope.retIncome, $scope.duration);
+
+        $scope.infoChart_options.series[0].data = getRetGraph($scope.retAge, $scope.duration, retireService.getGoal(), $scope.age);
+        $scope.infoChart_options.series[1].data = getProjectedGraph($scope.retAge,retireService.getGoal(),$scope.age);
 
 
       };
