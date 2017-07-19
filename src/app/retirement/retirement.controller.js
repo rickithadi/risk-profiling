@@ -1,46 +1,58 @@
 angular.module('inspinia').controller('retireController', function(retireService, $scope) {
 
-  $scope.apply = false;
   $scope.duration = retireService.getDuration();
   $scope.age = retireService.getAge();
   $scope.percentage = retireService.getPercentage();
-  $scope.name = retireService.getName();
-  $scope.retIncome = retireService.getRetIncome();
-  $scope.goal = retireService.getGoal();
   $scope.income = retireService.getIncome();
   $scope.retAge = retireService.getRetAge();
+    $scope.retIncome = retireService.getRetIncome();
+      $scope.goal = retireService.getGoal();
 
   function getRetGraph(v_retAge, v_duration, v_goal, v_age) {
-var dieAge = v_retAge + v_duration;
 
-var data = [  [  v_retAge, v_goal  ],  [dieAge, 0]];
-console.log("data:", data);
-return data;
-}
+    var dieAge = v_retAge + v_duration;
 
-  function getProjectedGraph(v_retAge,v_goal,v_age){
-var data=[[v_age,0],[v_retAge,v_goal]];
-console.log("data:",data);
-return data;
+    var data = [
+      [
+        v_retAge, v_goal
+      ],
+      [dieAge, 0]
+    ];
+    console.log("data retGraph:", data);
+    return data;
+  }
+
+  function getProjectedGraph(v_retAge, v_goal, v_age) {
+    var data = [
+      [
+        v_age, 0
+      ],
+      [v_retAge, v_goal]
+    ];
+    console.log("data projGraph:", data);
+    return data;
   }
 
   //$scope.graphData=[[$scope.retAge,$scope.goal],[$scope.dieAge,0]];
 
-  $scope.setRetIncome = function() {
-    var v_retIncome = $scope.percentage / 100 * $scope.income;
+  $scope.setRetIncome = function(v_percentage, v_income) {
+    var v_retIncome = v_percentage / 100 * v_income;
     console.log("v_retIncome", v_retIncome);
     retireService.setRetIncome(v_retIncome);
     $scope.retIncome = retireService.getRetIncome();
+    console.log($scope.retIncome);
   }
   $scope.setGoal = function(v_retIncome, v_duration) {
     var v_goal = (v_retIncome * 12) * v_duration;
     console.log("v_goal", v_goal);
     retireService.setGoal(v_goal);
+    $scope.goal = retireService.getGoal();
   }
 
   $scope.setName = function(name) {
     console.log("setName")
     retireService.setName(name);
+    $scope.name = retireService.getName();
   }
 
   $scope.setIncome = function(income) {
@@ -74,23 +86,16 @@ return data;
     hasGrid: true,
     onFinish: function(data) {
       if (data.input.attr('id') == 'slider_init') {
+
         console.log('slider_init:', data.from);
 
         $scope.percentage = data.from
-        console.log($scope.percentage);
-        $scope.setRetIncome();
-        $scope.setGoal($scope.retIncome, $scope.duration);
+        console.log("percentage", $scope.percentage);
+      $scope.init();
 
-        $scope.infoChart_options.series[0].data = getRetGraph($scope.retAge, $scope.duration, retireService.getGoal(), $scope.age);
-        $scope.infoChart_options.series[1].data = getProjectedGraph($scope.retAge,retireService.getGoal(),$scope.age);
 
-  };
-}
-}
-  $scope.updateGraph = function() {
-    console.log("updating");
-    $scope.infoChart_options.series[0].data = getRetGraph($scope.retAge, $scope.duration, retireService.getGoal());
-    // $scope.infoChart_options.series[1].data =getGraph($scope.retAge,$scope.duration,retireService.getGoal());
+      };
+    }
   }
 
   $scope.infoChart_options = {
@@ -118,7 +123,7 @@ return data;
     series: [
       {
         type: "line",
-        name: "ideally",
+        name: "retirement",
         data: [],
         color: '#FF0000',
         dashStyle: 'solid',
@@ -132,7 +137,7 @@ return data;
         ]
       }, {
         type: "areaspline",
-        name: "whats real",
+        name: "goal",
         data: [],
         color: '#125655'
       }
@@ -156,4 +161,15 @@ return data;
     }
 
   }
+  $scope.init = function() {
+    console.log("init");
+    $scope.setRetIncome($scope.percentage, $scope.income);
+    $scope.setGoal($scope.retIncome, $scope.duration);
+    $scope.infoChart_options.series[0].data = getRetGraph($scope.retAge, $scope.duration, retireService.getGoal(), $scope.age);
+    $scope.infoChart_options.series[1].data = getProjectedGraph($scope.retAge, retireService.getGoal(), $scope.age);
+
+  }
+
+  $scope.init();
+
 })

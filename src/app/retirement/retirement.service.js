@@ -3,7 +3,7 @@ angular.module('inspinia').service('retireService', function() {
 vm.age=20; //private data
  vm.name = "";
   vm.income=5000;
-  vm.retIncome;
+  vm.retIncome=0;
   vm.retAge=50;
   vm.duration=15;
   vm.percentage = 70;

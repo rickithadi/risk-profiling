@@ -3,23 +3,23 @@
   <div class="col-md-4">
     <br></br>
     <br></br>
-    <div class="col-md-2>" <h3> Name </h3> <input type="text" ng-model="name" ng-blur="setName(name)" />
+    <div class="col-md-2>" <h3> Name </h3> <input type="text" ng-model="name" ng-blur="setName(name); init()" />
     </div>
     <br></br>
-    <div class="col-md-2>" <h3> income </h3> <input type="number" ng-model="income" ng-blur="setIncome(income)" />
+    <div class="col-md-2>" <h3> income </h3> <input type="number" ng-model="income" ng-blur="setIncome(income);init()" />
     </div>
     <br></br>
-    <div class="col-md-2>" <h3> age </h3> <input type="number" ng-model="age" ng-blur="setAge(age)" />
+    <div class="col-md-2>" <h3> age </h3> <input type="number" ng-model="age" ng-blur="setAge(age) ;init()" />
     </div>
     <br></br>
-    <div class="col-md-2>" <h3> retirement age </h3> <input type="number" ng-model="retAge" ng-blur="setRetAge(retAge)" />
+    <div class="col-md-2>" <h3> retirement age </h3> <input type="number" ng-model="retAge" ng-blur="setRetAge(retAge) ;init()" />
     </div>
     <br></br>
-    <div class="col-md-2>" <h3> retirement duration </h3> <input type="number" ng-model="duration" ng-blur="setDuration(duration)" />
+    <div class="col-md-2>" <h3> retirement duration </h3> <input type="number" ng-model="duration" ng-blur="setDuration(duration) ;init()" />
     </div>
-      <button ng-click="updateGraph()">update!</button>
 
-</div>
+
+  </div>
 
 
 
@@ -34,11 +34,11 @@
 
     <div id="container" style="min-width: 310px; height: 100px; max-width: 600px; margin: 0 auto">
 
-      <input id="slider_init" ion-range-slider range-options="slider_init_options" ng-model="percentage" >
+      <input id="slider_init" ion-range-slider range-options="slider_init_options" ng-model="percentage">
 
     </div>
 
-<br></br>
+    <br></br>
     <row>
       <h1>
 {{percentage}}% X {{income}} = {{percentage/100 * income}}
@@ -52,16 +52,11 @@
 
     </div>
 
+    <row>
+      <div class="col-lg-8">
+        <center>
+          <h1> target amount for retirement:{{(percentage/100 * income) * 12 * duration}}</h1>
 
-
-
-
-
-
-<center>
-  <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
-
-</center>
 
 
 
@@ -70,4 +65,15 @@
 
 
 
-</div>
+          <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
+        </center>
+
+    </row>
+
+
+
+
+
+
+
+    </div>
