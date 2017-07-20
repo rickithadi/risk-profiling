@@ -2,6 +2,43 @@
   <div  style="background:white" class="wrapper wrapper-content animated fadeInRight" >
       <div class="row" ng-controller="retireController">
 
+
+<div class="col-md-4 offset-md-4">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="firstName" class="col-sm-6 control-label">Name</label>
+              <div class="col-sm-5">
+                <input type="text"  placeholder="Full Name" class="form-control" ng-model="name" ng-blur="setName(name); init()" >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="firstName" class="col-sm-6 control-label">Income</label>
+              <div class="col-sm-5">
+                <input type="text"  placeholder="Income" class="form-control" ng-model="income" ng-blur="setIncome(income);init()">
+              </div>
+            </div>  <div class="form-group">
+                <label for="firstName" class="col-sm-6 control-label">Age</label>
+                <div class="col-sm-5">
+                  <input type="number"  placeholder="Age" class="form-control" ng-model="age" ng-blur="setAge(age) ;init()">
+                </div>
+              </div>  <div class="form-group">
+                  <label for="firstName" class="col-sm-6 control-label">Retirement Age</label>
+                  <div class="col-sm-5">
+                    <input type="number" placeholder="Retirement Age" class="form-control" ng-model="retAge" ng-blur="setRetAge(retAge) ;init()">
+                  </div>
+                </div>  <div class="form-group">
+                    <label for="firstName" class="col-sm-6 control-label">Retirement Duration</label>
+                    <div class="col-sm-5">
+                      <input type="number"  placeholder="Retirement Duration" class="form-control" ng-model="duration" ng-blur="setDuration(duration) ;init()">
+                    </div>
+                  </div>
+          </form>
+
+        </div>
+
+        <!-- <div class="container">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
   <div class="col-md-4">
     <br></br>
     <br></br>
@@ -23,7 +60,9 @@
 
   </div>
 
-
+</div>
+</form>
+</div> -->
 
 
   <row>
@@ -75,7 +114,7 @@
 <br></br>
     <div class="row" ng-controller="investmentController">
 
-  <form>
+  <!-- <form>
     search
     <input type="text" ng-model="search.term">
     <label>inital amount:</label>
@@ -89,34 +128,45 @@
     <br> <br/>
     <input type="hidden" ng-model="newinvestment.id" />
     <input type="button" value="Save" ng-click="saveinvestment()" />
-  </form>
-  <table st-table="rowCollection" class="table table-striped">
-    <thead>
-      <tr>
-        <th>initialAmt</th>
+  </form> -->
+<div class ="col-sm-2"></div>
 
-        <th>term</th>
+<div class ="col-sm-10">
+            <form class="form-horizontal" role="form">
+              <div class="col-md-1">
+              <div class="form-group">
 
-        <th>targetAmt</th>
+                <div class="col-sm-12">
+                  <input type="text" placeholder="Inital Amount" class="form-control" name="initialAmt" ng-model="newinvestment.initialAmt" >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
 
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="investment in investments| filter:search">
-        <td>{{ investment.initialAmt }}</td>
-        <td>{{ investment.term }}</td>
-        <td>{{ investment.targetAmt }}</td>
-        <td>
-          <a ng-click="view(investment.investment_id)">view</a> |
-          <a ng-click="delete(investment.investment_id)">delete</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+                <div class="col-sm-12">
+                  <input type="text"  placeholder="Term" class="form-control"  name="term" ng-model="newinvestment.term">
+                </div>
+              </div>
+              </div>
+              <div class="col-md-1">
+              <div class="form-group">
+
+                  <div class="col-sm-12">
+                    <input type="number"  placeholder="Target Amount" class="form-control" name="targetAmt" ng-model="newinvestment.targetAmt">
+                  </div>
+                </div>
+                </div>
+
+
+                   <button type="submit" class="btn btn-success btn-primary" ng-click="saveinvestment()">Save</button>
+            </form>
+
+          </div>
+          </div>
   <div class="col-md-6">
     <br></br>
     <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
   </div>
-</div>
+
 <div>
