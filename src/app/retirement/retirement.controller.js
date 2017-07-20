@@ -89,7 +89,7 @@ angular.module('inspinia').controller('retireController', function(retireService
     prettify: true,
     grid: true,
     hasGrid: true,
-    onChange: function(data) {
+    onFinish: function(data) {
       if (data.input.attr('id') == 'slider_init') {
 
         console.log('slider_init:', data.from);
@@ -106,6 +106,7 @@ angular.module('inspinia').controller('retireController', function(retireService
         $scope.infoChart_options.series[1].data = getProjectedGraph($scope.retAge, retireService.getGoal(), $scope.age);
 
         console.log("ProjectedGraph data", $scope.infoChart_options.series[1].data);
+        $scope.$apply();
 
       };
     }
