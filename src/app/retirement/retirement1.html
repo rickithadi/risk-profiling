@@ -53,22 +53,18 @@
     </div>
 
     <row>
-      <div class="col-lg-8">
-        <center>
-          <h1> target amount for retirement:{{(percentage/100 * income) * 12 * duration}}</h1>
+  <div class="col-lg-8">
+
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+      <center>
+        <h1> target amount for retirement: {{(percentage/100 * income) * 12 * duration}}</h1>
+      </center>
 
 
+      <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
 
-
-
-
-
-
-
-          <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
-        </center>
-
-    </row>
+    </div>
+</row>
 
 
 
