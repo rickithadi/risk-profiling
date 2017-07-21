@@ -49,7 +49,7 @@
       <div class="col-lg-5 col-lg-push-3" style="background:white ;border:1px solid #cecece;">
 
 
-        <center>
+<center>
           <h1> {{name}} your preferred monthly allowance during retirement is</h1>
           <br></br>
 
@@ -75,21 +75,35 @@
         <h1> target amount for retirement: {{(percentage/100 * income) * 12 * duration}}</h1>
       </center>
       <br></br>
+
+      <div class="col-lg-9">
       <div id="container" style="height: 600px;width: 800px; margin: 10 auto; ">
 
         <highchart id="chart_cumulative_ret" config="infoChart_options"></highchart>
 
+  </div>
+</div>
+<div class="col-lg-3">
+  <br></br>
+  <br></br>
+  <center>
+    <h1> initial investment</h1>
+  </center>
+  <div id="container" style="min-width: 420px; height: 100px; max-width: 400px; margin: 0 auto">
 
+                  <input id="slider_init" ion-range-slider range-options="slider_init_options_initial" ng-model="">
+</div>
+</div>
       </div>
 
       <br></br>
 
-    </div>
-  </div>
+
+
 
   <div id="cont" style=" height: 50px"></div>
 
-
+<!--
   <div class="row" ng-controller="investmentController" >
   <div class="col-sm-3"style="background:white ;border:1px solid #cecece;">
 
@@ -111,7 +125,7 @@
 
         </div>
 
-        <div class="col-sm-1 col-sm-offset-2">
+        <div class="col-sm- col-sm-offset-2">
 
           <input type="number" placeholder="Target Amount" class="form-control" name="targetAmt" ng-model="newinvestment.targetAmt">
 
@@ -149,6 +163,6 @@
 
     </row>
 
-  </div>
+  </div> -->
 
 </div>
