@@ -8,6 +8,7 @@ vm.age=20; //private data
   vm.duration=15;
   vm.percentage = 70;
   vm.goal=0;
+  vm.initialAmt=10000;
 
   function setName(v_name) {
     vm.name = v_name;
@@ -80,6 +81,15 @@ vm.age=20; //private data
     return vm.retAge;
   }
 
+  function setinitialAmt(v_initialAmt) {
+    vm.initialAmt = v_initialAmt;
+    console.log(vm.initialAmt);
+  }
+  function getinitialAmt() {
+    console.log('initial amount:', vm.initialAmt);
+    return vm.initialAmt;
+  }
+
   return {
     getName: getName,
     setName: setName,
@@ -96,7 +106,9 @@ vm.age=20; //private data
     getRetAge: getRetAge,
     setRetAge: setRetAge,
     getGoal:getGoal,
-    setGoal:setGoal
+    setGoal:setGoal,
+    getinitialAmt:  getinitialAmt,
+      setinitialAmt:  setinitialAmt
 
   }
 });

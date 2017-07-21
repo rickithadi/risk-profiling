@@ -7,6 +7,7 @@ angular.module('inspinia').controller('retireController', function(retireService
   $scope.retAge = retireService.getRetAge();
   $scope.retIncome = retireService.getRetIncome();
   $scope.goal = retireService.getGoal();
+  $scope.initialAmt=retireService.getinitialAmt();
 
   function getRetGraph(v_retAge, v_duration, v_goal, v_age) {
 
@@ -24,12 +25,12 @@ angular.module('inspinia').controller('retireController', function(retireService
       data = [];
   }
 
-  function getProjectedGraph(v_retAge, v_goal, v_age) {
+  function getProjectedGraph(v_retAge,v_initialAmt, v_goal, v_age) {
 
 
     var data = [
       [
-        v_age, 0
+        v_age, v_initialAmt
       ],
       [v_retAge, v_goal]
     ];
@@ -94,7 +95,8 @@ angular.module('inspinia').controller('retireController', function(retireService
 
         console.log('slider_init:', data.from);
 
-        $scope.percentage = data.from
+        $scope.percentage = data.from;
+
         console.log("percentage", $scope.percentage);
         $scope.setRetIncome($scope.percentage, $scope.income);
         $scope.setGoal($scope.retIncome, $scope.duration);
@@ -103,7 +105,8 @@ angular.module('inspinia').controller('retireController', function(retireService
 
         console.log("retGraph data", $scope.infoChart_options.series[0].data);
 
-        $scope.infoChart_options.series[1].data = getProjectedGraph($scope.retAge, retireService.getGoal(), $scope.age);
+        $scope.infoChart_options.series[1].data = getProjectedGraph($scope.retAge,retireService.getinitialAmt(), retireService.getGoal(), $scope.age);
+        console.log("initial amount:", $scope.initialAmt);
 
         console.log("ProjectedGraph data", $scope.infoChart_options.series[1].data);
         $scope.$apply();
