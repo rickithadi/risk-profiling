@@ -171,13 +171,9 @@ angular.module('inspinia').controller('retireController', function(retireService
         console.log('slider_init_initial:', data.from);
 
         $scope.monthlyAmt = data.from
-        $scope.monthlyAmt($scope.monthlyAmt);
+        $scope.setmonthlyAmt($scope.monthlyAmt);
 
-        // $scope.infoChart_options.series[1].data = getProjectedGraph($scope.retAge,retireService.getinitialAmt(), retireService.getGoal(), $scope.age);
-        // console.log("initial amount:", $scope.initialAmt);
-        //
-        // console.log("ProjectedGraph data", $scope.infoChart_options.series[1].data);
-        //     $scope.$apply();
+
 
 
       };
@@ -261,5 +257,21 @@ angular.module('inspinia').controller('retireController', function(retireService
   }
 
   $scope.init();
+
+  $scope.getFinalValue = function(rate, term, initialAmt) {
+    var cash = initialAmt;
+   updateDataG=[];
+      for (var i = 0; i < term; i++) {
+      //console.log("cash1:",cash);
+      cash = cash * rate / 100 + cash;
+      console.log("cash2:", cash);
+      updateDataG.push(cash);
+
+    }
+    console.log("array to update:", updateDataG);
+
+    $scope.infoChart_options.series[0].data = updateDataG;
+  }
+
 
 })
