@@ -10,6 +10,9 @@ vm.age=20; //private data
   vm.goal=0;
   vm.initialAmt=10000;
 
+
+
+
   function setName(v_name) {
     vm.name = v_name;
     console.log(vm.name);
