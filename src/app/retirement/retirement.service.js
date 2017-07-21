@@ -1,17 +1,15 @@
 angular.module('inspinia').service('retireService', function() {
   var vm = this
-vm.age=20; //private data
- vm.name = "";
-  vm.income=5000;
-  vm.retIncome=0;
-  vm.retAge=50;
-  vm.duration=15;
+  vm.age = 20; //private data
+  vm.name = "";
+  vm.income = 5000;
+  vm.retIncome = 0;
+  vm.retAge = 50;
+  vm.duration = 15;
   vm.percentage = 70;
-  vm.goal=0;
-  vm.initialAmt=10000;
-
-
-
+  vm.goal = 0;
+  vm.initialAmt = 10000;
+  vm.monthlyAmt = 100;
 
   function setName(v_name) {
     vm.name = v_name;
@@ -92,6 +90,14 @@ vm.age=20; //private data
     console.log('initial amount:', vm.initialAmt);
     return vm.initialAmt;
   }
+  function setmonthlyAmt(v_monthlyAmt) {
+    vm.monthlyAmt = v_monthlyAmt;
+    console.log(vm.monthlyAmt);
+  }
+  function getmonthlyAmt() {
+    console.log('monthly deposit', vm.monthlyAmt);
+    return vm.monthlyAmt;
+  }
 
   return {
     getName: getName,
@@ -108,10 +114,12 @@ vm.age=20; //private data
     setAge: setAge,
     getRetAge: getRetAge,
     setRetAge: setRetAge,
-    getGoal:getGoal,
-    setGoal:setGoal,
-    getinitialAmt:  getinitialAmt,
-      setinitialAmt:  setinitialAmt
+    getGoal: getGoal,
+    setGoal: setGoal,
+    getinitialAmt: getinitialAmt,
+    setinitialAmt: setinitialAmt,
+    getmonthlyAmt: getmonthlyAmt,
+    setmonthlyAmt: setmonthlyAmt
 
   }
 });

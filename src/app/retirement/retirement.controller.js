@@ -8,6 +8,7 @@ angular.module('inspinia').controller('retireController', function(retireService
   $scope.retIncome = retireService.getRetIncome();
   $scope.goal = retireService.getGoal();
   $scope.initialAmt=retireService.getinitialAmt();
+  $scope.monthlyAmt=retireService.getmonthlyAmt();
 
   function getRetGraph(v_retAge, v_duration, v_goal, v_age) {
 
@@ -43,6 +44,11 @@ angular.module('inspinia').controller('retireController', function(retireService
   $scope.setinitialAmt = function(v_initialAmt) {
     console.log("setinitialAmt")
     retireService.setinitialAmt(v_initialAmt);
+  }
+
+  $scope.setmonthlyAmt = function(v_monthlyAmt) {
+    console.log("setmonthlyAmt")
+    retireService.setinitialAmt(v_monthlyAmt);
   }
 
   $scope.setRetIncome = function(v_percentage, v_income) {
@@ -94,7 +100,7 @@ angular.module('inspinia').controller('retireController', function(retireService
     prettify: true,
     grid: true,
     hasGrid: true,
-    onFinish: function(data) {
+    onChange: function(data) {
       if (data.input.attr('id') == 'slider_init') {
 
         console.log('slider_init:', data.from);
@@ -123,14 +129,14 @@ angular.module('inspinia').controller('retireController', function(retireService
   $scope.slider_init_options_initial = {
     min: 0,
     max: 500000,
-    from: 70,
+    from: retireService.getinitialAmt(),
     step: 5,
     type: 'single',
     prefix: "$ ",
     prettify: true,
     grid: true,
     hasGrid: true,
-    onFinish: function(data) {
+    onChange: function(data) {
       if (data.input.attr('id') == 'slider_init_initial') {
 
         console.log('slider_init_initial:', data.from);
@@ -143,6 +149,35 @@ angular.module('inspinia').controller('retireController', function(retireService
 
         console.log("ProjectedGraph data", $scope.infoChart_options.series[1].data);
             $scope.$apply();
+
+
+      };
+    }
+  }
+
+  $scope.slider_init_options_monthly = {
+    min: 0,
+    max: retireService.getIncome(),
+    from: 100,
+    step: 5,
+    type: 'single',
+    prefix: "$ ",
+    prettify: true,
+    grid: false,
+    hasGrid: false,
+    onFinish: function(data) {
+      if (data.input.attr('id') == 'slider_init_initial') {
+
+        console.log('slider_init_initial:', data.from);
+
+        $scope.monthlyAmt = data.from
+        $scope.monthlyAmt($scope.monthlyAmt);
+
+        // $scope.infoChart_options.series[1].data = getProjectedGraph($scope.retAge,retireService.getinitialAmt(), retireService.getGoal(), $scope.age);
+        // console.log("initial amount:", $scope.initialAmt);
+        //
+        // console.log("ProjectedGraph data", $scope.infoChart_options.series[1].data);
+        //     $scope.$apply();
 
 
       };
@@ -200,7 +235,7 @@ angular.module('inspinia').controller('retireController', function(retireService
     ],
 
     title: {
-      text: 'retirement'
+      text: ''
     },
     //Boolean to control showing loading status on chart (optional)
     //Could be a string if you want to show specific loading text.
@@ -211,7 +246,7 @@ angular.module('inspinia').controller('retireController', function(retireService
     useHighStocks: false,
     //size (optional) if left out the chart will default to size of the div or something sensible.
     size: {
-      width: 1200,
+      width: 1400,
       height: 600
     }
 
