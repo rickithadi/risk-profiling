@@ -57,98 +57,17 @@
                 data: { pageTitle: 'Get To Know - Retirement' },
                 access: { requiredLogin: true }
               })
-        .state('debt', {
+        .state('risk', {
           abstract: true,
-          url: "/debt",
+          url: "/risk",
           templateUrl: "app/components/common/content.html"
         })
-        .state('debt.main', {
-          url: "/debt_main",
-          templateUrl: "app/debt/debt.html",
-          data: { pageTitle: 'Example view' }
+        .state('risk.main', {
+          url: "/risk_main",
+          templateUrl: "app/risk/risk.html",
+          data: { pageTitle: 'risk profile' }
         })
-        .state('pie', {
-          abstract: true,
-          url: "/pie",
-          templateUrl: "app/components/common/content.html"
-        })
-        .state('pie.main', {
-          url: "/pie_main",
-          templateUrl: "app/pie/pie.html",
-          data: { pageTitle: 'Example view' }
-        })
-        .state('infoQ', {
-          abstract: true,
-          url: "/infoQ",
-          templateUrl: "app/components/common/content.html"
-        })
-        .state('infoQ.main', {
-          url: "/infoQ_main",
-          templateUrl: "app/infoQ/info.html",
-          data: { pageTitle: 'Example view' }
-        })
-        .state('investment', {
-          abstract: true,
-          url: "/investment",
-          templateUrl: "app/components/common/content.html"
-        })
-        .state('investment.main', {
-          url: "/investment.main",
-          templateUrl: "app/investment/moduleList.html",
-          data: { pageTitle: 'list of modules' }
-        })
-        .state('portfolioList', {
-          abstract: true,
-          url: "/moduleList",
-          templateUrl: "app/components/common/content.html"
-        })
-        .state('portfolioList.main', {
-          url: "/portfolioList.main",
-          templateUrl: "app/portfolioList/portfolio.html",
-          data: { pageTitle: 'list of modules' }
-        })
-        .state('income', {
-          abstract: true,
-          url: "/income",
-          templateUrl: "app/components/common/content.html"
-        })
-        .state('income.main', {
-          url: "/income.main",
-          templateUrl: "app/income/income.html",
-          data: { pageTitle: 'income' }
-        })
-        .state('expenses', {
-          abstract: true,
-          url: "/expenses",
-          templateUrl: "app/components/common/content.html"
-        })
-        .state('expenses.main', {
-          url: "/expenses.main",
-          templateUrl: "app/expenses/expenses.html",
-          data: { pageTitle: 'income' }
-        })
-        .state('retirement', {
-          abstract: true,
-          url: "/retirement",
-          templateUrl: "app/components/common/content.html"
-        })
-        .state('retirement.home', {
-          url: "/retirement.home",
-          templateUrl: "app/retirement/retirement1.html",
-          data: { pageTitle: 'gna die soon' }
-        })
-        .state('retirement.retirement2', {
-                  url: "/retirement2",
-                  templateUrl: "app/retirement/retirement2.html",
-                  data: { pageTitle: 'how much time do you have' },
-                  access: { requiredLogin: true }
-                })
-                .state('retirement.retirement1', {
-                          url: "/retirement3",
-                          templateUrl: "app/retirement/retirement3.html",
-                          data: { pageTitle: 'deets' },
-                          access: { requiredLogin: true }
-                        })
+        
       ;
 
     $urlRouterProvider.otherwise('/index/main');

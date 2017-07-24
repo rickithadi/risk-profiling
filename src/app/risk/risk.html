@@ -1,0 +1,126 @@
+<div ng-app="inspinia" ng-controller="riskprofile as rpCtr">
+  <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+
+
+
+
+      <div class="container">
+
+        <div class="col-md-offset-3">
+          <div class="col-md-8">
+            <div class="form-group">
+              <div class="row">
+                <div class="text-center m-t-lg">
+                  <h1>
+                    Risk Profiling.
+                  </h1>
+                  <div class="riskProfileTitle">
+                    <h3>Time Horizon</h3>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- I plan to begin withdrawing money from my investments in: -->
+        <div class="col-md-offset-3">
+          <div class="clientev2 col-md-8">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="control-label">I plan to begin withdrawing money from my investments in:</label>
+                </div>
+
+              </div>
+            </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <input type="radio" value="1" ng-model="rpCtr.totalScore.thsP1">
+                  Less than 3 years<br/>
+                  <input type="radio" value="3" ng-model="rpCtr.totalScore.thsP1">
+                  3-5 years<br/>
+                  <input type="radio" value="7" ng-model="rpCtr.totalScore.thsP1">
+                  6-10 years<br/>
+                  <input type="radio" value="10" ng-model="rpCtr.totalScore.thsP1">
+                  11 years or more
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+        <!-- Once I begin withdrawing funds from my investments, I plan to spend all of the funds in: -->
+        <div class="col-md-offset-3">
+          <div class="clientev2 col-md-8">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="control-label">Once I begin withdrawing funds from my investments, I plan to spend all of the funds in:</label>
+                </div>
+
+              </div>
+            </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <input type="radio" value="0" ng-model="rpCtr.totalScore.thsP2">
+                  Less than 2 years<br/>
+                  <input type="radio" value="1" ng-model="rpCtr.totalScore.thsP2">
+                  2-5 years<br/>
+                  <input type="radio" value="4" ng-model="rpCtr.totalScore.thsP2">
+                  6-10 years<br/>
+                  <input type="radio" value="8" ng-model="rpCtr.totalScore.thsP2">
+                  11 years or more
+                </div>
+              </div>
+          </div>
+        </div>
+        Part 1 Score: {{rpCtr.totalScore.thsP1*1 }}<br>
+        Part 2 Score: {{rpCtr.totalScore.thsP2*1 }}<br>
+        Sum: {{rpCtr.totalScore.thsP1*1 + rpCtr.totalScore.thsP2*1}}
+
+        <div class="col-md-offset-3">
+          <div class="col-md-8">
+            <div class="form-group">
+              <div class="row">
+                <div class="text-center m-t-lg">
+                  <h2>
+
+                    Complete the questionnaire.
+                  </h2>
+                  <div class="">
+                    <small>Risk Profiling Assessment</small>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-5">
+            <div class="space">
+              <button type="submit" class="btn btn-primary btn-block" ng-click="rpCtr.check()">Register</button>
+            </div>
+          </div>
+        </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
